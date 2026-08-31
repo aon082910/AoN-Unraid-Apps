@@ -1,0 +1,75 @@
+<?xml version="1.0"?>
+<Container version="2">
+  <Name>AoNarr</Name>
+  <Repository>allornothing/aonarr:combined</Repository>
+  <Registry>https://hub.docker.com/r/allornothing/aonarr</Registry>
+  <Network>bridge</Network>
+  <MyIP/>
+  <Shell>sh</Shell>
+  <Privileged>false</Privileged>
+
+  <Support>https://github.com/aon082910/AoNarr/issues</Support>
+  <Project>https://github.com/aon082910/AoNarr</Project>
+  <TemplateURL>https://raw.githubusercontent.com/aon082910/Unraid-CA/main/AoNarr/aonarr.xml</TemplateURL>
+  <ReadMe>https://raw.githubusercontent.com/aon082910/AoNarr/main/README.md</ReadMe>
+  <Icon>https://raw.githubusercontent.com/aon082910/Unraid-CA/main/AoNarr/icon.png</Icon>
+  <WebUI>http://[IP]:[PORT:9876]/</WebUI>
+
+  <Overview>
+Self-hosted media manager covering every library the individual *arr apps split across separate
+containers - Movies, TV Shows, Anime, Music, Books, Audiobooks, Comics, Manga, ROMs, Online
+Videos, Courses, Podcasts and Adult - in one app, one database, one container.
+
+Same core mechanics as Sonarr/Radarr/Lidarr/Readarr: quality profiles, custom formats, indexers
+(Torznab/Newznab, Prowlarr/Jackett sync), download clients (qBittorrent, SABnzbd, Real-Debrid,
+AllDebrid, direct HTTP, yt-dlp, Soulseek), notifications, calendar, naming templates, a recycle
+bin, scheduled jobs, delay profiles and per-connection notification triggers - all built in, not
+bolted on as separate services.
+
+Also included: an OPDS catalog and Send-to-Kindle for e-readers, subtitle management with
+multi-language downloads and a background rescan for anything missed, an MCP server for AI-agent
+control, a Discord /request slash command, IRC instant-grab announce feeds (Autobrr-style), Plex/
+Jellyfin/Emby watch-status sync with automatic archival, household user accounts with self-service
+invite links, hardlink/symlink import strategies for debrid/rclone-mounted setups, and watch-
+history-based auto-recommendations.
+
+This is the single-container build (nginx + the API in one image) - the simplest way to run it on
+Unraid. A split two-container version exists upstream for setups that want the UI and API to scale
+or update independently, but the combined image here is what this template uses.
+
+On first run, open the WebUI - it walks you through creating the admin account and generates an
+API key for you. Everything else (indexers, download clients, root folders, quality profiles) is
+configured from inside the app itself, not through container variables.
+  </Overview>
+
+  <Category>MediaApp:Video MediaApp:Music MediaApp:Books Downloaders:</Category>
+  <ExtraSearchTerms>sonarr radarr lidarr readarr prowlarr bazarr media manager pvr books comics manga audiobooks podcasts irc autobrr</ExtraSearchTerms>
+  <Requires>An indexer (Torznab/Newznab, or Prowlarr/Jackett to sync from) and at least one download client are needed before it can actually acquire anything - both configured from inside the app after first run.</Requires>
+  <Changes>https://raw.githubusercontent.com/aon082910/AoNarr/main/CHANGELOG.md</Changes>
+  <Date>2026-08-31</Date>
+  <License>MIT</License>
+  <MinVer>6.9</MinVer>
+
+  <ExtraParams/>
+  <PostArgs/>
+  <CPUset/>
+  <DateInstalled/>
+  <DonateText/>
+  <DonateLink/>
+
+  <Config Name="WebUI Port" Target="9876" Default="9876" Mode="tcp"
+          Description="Port for the web interface. The container's own API runs behind it on the same port - nothing else needs to be published."
+          Type="Port" Display="always" Required="true" Mask="false">9876</Config>
+
+  <Config Name="Appdata" Target="/config" Default="/mnt/user/appdata/aonarr" Mode="rw"
+          Description="Database, settings and the generated admin API key all live here. Back this up."
+          Type="Path" Display="always" Required="true" Mask="false">/mnt/user/appdata/aonarr</Config>
+
+  <Config Name="Downloads" Target="/downloads" Default="/mnt/user/downloads" Mode="rw"
+          Description="Where your download client(s) save completed files for AoNarr to import - point this at the same share your download client itself writes to."
+          Type="Path" Display="always" Required="true" Mask="false">/mnt/user/downloads</Config>
+
+  <Config Name="Media" Target="/media" Default="/mnt/user/media" Mode="rw"
+          Description="Your library storage. Add individual root folders as subpaths of this from inside the app (Settings - Root Folders) - one per library type, e.g. /media/movies, /media/books."
+          Type="Path" Display="always" Required="true" Mask="false">/mnt/user/media</Config>
+</Container>
