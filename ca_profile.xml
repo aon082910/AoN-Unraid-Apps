@@ -29,6 +29,14 @@ game version, a newest-posts notice board surfaces what's freshly published, and
 mod's page pulls in community discussion (with heuristic fake-review flags) and
 YouTube videos with download links extracted straight from their descriptions.
 
+**Build-Hub** - offline parts search and AI-assisted BOM generation for electronics
+and 3D-printing (RepRap) builds. Same cross-marketplace matching and landed-cost
+engine as Shopping Hub, retargeted at electronics/maker parts and component
+distributors (Octopart, LCSC), plus two additions: paste or upload a custom CSV/JSON
+parts catalog to search alongside crawled listings, or describe what you're building
+in plain language and let AI (a cloud key or a local Ollama instance, both optional)
+draft the parts list for you before it's priced and linked.
+
 All of them are MIT licensed. Issues and questions are handled on GitHub, on each
 app's own repository.
   </Profile>

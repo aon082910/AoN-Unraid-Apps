@@ -7,6 +7,7 @@ Unraid Community Applications templates for my self-hosted apps. One folder per 
 | **Shopping Hub** | [`Shopping-Hub/`](Shopping-Hub/shopping-hub.xml) | [aon082910/shopping-hub](https://github.com/aon082910/shopping-hub) | [`allornothing/shopping-hub`](https://hub.docker.com/r/allornothing/shopping-hub) |
 | **AoNarr** | [`AoNarr/`](AoNarr/aonarr.xml) | [aon082910/AoNarr](https://github.com/aon082910/AoNarr) | [`allornothing/aonarr`](https://hub.docker.com/r/allornothing/aonarr) |
 | **MC-Mod-Hub** | [`MC-Mod-Hub/`](MC-Mod-Hub/mc-mod-hub.xml) | [aon082910/mc-mod-hub](https://github.com/aon082910/mc-mod-hub) | [`allornothing/mc-mod-hub`](https://hub.docker.com/r/allornothing/mc-mod-hub) |
+| **Build-Hub** | [`Build-Hub/`](Build-Hub/build-hub.xml) | [aon082910/build-hub](https://github.com/aon082910/build-hub) | [`allornothing/build-hub`](https://hub.docker.com/r/allornothing/build-hub) |
 
 ## Installing
 
@@ -35,6 +36,9 @@ AoNarr/
   icon.png              app icon
 MC-Mod-Hub/
   mc-mod-hub.xml        container template
+  icon.png              app icon
+Build-Hub/
+  build-hub.xml         container template
   icon.png              app icon
 ```
 
