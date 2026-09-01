@@ -10,9 +10,9 @@
 
   <Support>https://github.com/aon082910/AoNarr/issues</Support>
   <Project>https://github.com/aon082910/AoNarr</Project>
-  <TemplateURL>https://raw.githubusercontent.com/aon082910/Unraid-CA/main/AoNarr/aonarr.xml</TemplateURL>
+  <TemplateURL>https://raw.githubusercontent.com/aon082910/AoN-Unraid-Apps/main/AoNarr/aonarr.xml</TemplateURL>
   <ReadMe>https://raw.githubusercontent.com/aon082910/AoNarr/main/README.md</ReadMe>
-  <Icon>https://raw.githubusercontent.com/aon082910/Unraid-CA/main/AoNarr/icon.png</Icon>
+  <Icon>https://raw.githubusercontent.com/aon082910/AoN-Unraid-Apps/main/AoNarr/icon.png</Icon>
   <WebUI>http://[IP]:[PORT:9876]/</WebUI>
 
   <Overview>
