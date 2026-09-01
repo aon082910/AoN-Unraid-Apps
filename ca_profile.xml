@@ -22,8 +22,12 @@ notifications, calendar - plus extras like an OPDS catalog, subtitle management,
 instant-grab feeds and Plex/Jellyfin/Emby sync, all built in rather than bolted on as
 separate containers.
 
-**MC-Mod-Hub** is in progress and will appear here when its template is ready: a
-Minecraft mod search hub spanning Modrinth, CurseForge and others.
+**MC-Mod-Hub** - a Minecraft mod/addon search hub spanning Modrinth, CurseForge,
+PlanetMinecraft, 9Minecraft and BetterBedrock, merged into one searchable, category-
+browsable list. Every result shows the required Java/Bedrock edition and supported
+game version, a newest-posts notice board surfaces what's freshly published, and each
+mod's page pulls in community discussion (with heuristic fake-review flags) and
+YouTube videos with download links extracted straight from their descriptions.
 
 All of them are MIT licensed. Issues and questions are handled on GitHub, on each
 app's own repository.
