@@ -72,4 +72,12 @@ configured from inside the app itself, not through container variables.
   <Config Name="Media" Target="/media" Default="/mnt/user/media" Mode="rw"
           Description="Your library storage. Add individual root folders as subpaths of this from inside the app (Settings - Root Folders) - one per library type, e.g. /media/movies, /media/books."
           Type="Path" Display="always" Required="true" Mask="false">/mnt/user/media</Config>
+
+  <Config Name="PUID" Target="PUID" Default="99" Mode=""
+          Description="User ID files under Appdata are chowned to on startup. Matches Unraid's default nobody user."
+          Type="Variable" Display="advanced" Required="false" Mask="false">99</Config>
+
+  <Config Name="PGID" Target="PGID" Default="100" Mode=""
+          Description="Group ID files under Appdata are chowned to on startup. Matches Unraid's default users group."
+          Type="Variable" Display="advanced" Required="false" Mask="false">100</Config>
 </Container>

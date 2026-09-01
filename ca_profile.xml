@@ -14,9 +14,16 @@ than sticker price, because the cheapest unit price routinely belongs to the mos
 expensive order, and it includes a US retail baseline so it can tell you when
 importing is not actually worth it.
 
-Two more are in progress and will appear here when their templates are ready:
-**AoNarr**, a unified front end over Sonarr/Radarr/Lidarr/Readarr/Prowlarr/Bazarr, and
-**MC-Mod-Hub**, a Minecraft mod search hub spanning Modrinth, CurseForge and others.
+**AoNarr** - a self-hosted media manager covering every library the individual *arr
+apps split across separate containers (movies, TV, anime, music, books, audiobooks,
+comics, manga, and more) in one app, one database, one container. Same core mechanics
+as Sonarr/Radarr/Lidarr/Readarr - quality profiles, indexers, download clients,
+notifications, calendar - plus extras like an OPDS catalog, subtitle management, IRC
+instant-grab feeds and Plex/Jellyfin/Emby sync, all built in rather than bolted on as
+separate containers.
+
+**MC-Mod-Hub** is in progress and will appear here when its template is ready: a
+Minecraft mod search hub spanning Modrinth, CurseForge and others.
 
 All of them are MIT licensed. Issues and questions are handled on GitHub, on each
 app's own repository.
