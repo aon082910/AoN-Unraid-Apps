@@ -60,8 +60,8 @@ key ever needs to be baked into the container.
           Type="Path" Display="always" Required="true" Mask="false">/mnt/user/appdata/mc-mod-hub</Config>
 
   <Config Name="SESSION_SECRET" Target="SESSION_SECRET" Default="" Mode=""
-          Description="Random string used to sign admin login sessions. Set this to something unique."
-          Type="Variable" Display="always" Required="true" Mask="false"></Config>
+          Description="Optional: random string used to sign admin login sessions. Leave blank and the app generates and persists one on first boot — set this only if you want to fix it yourself (e.g. sharing a secret across multiple instances)."
+          Type="Variable" Display="advanced" Required="false" Mask="false"></Config>
 
   <Config Name="ADMIN_PASSWORD" Target="ADMIN_PASSWORD" Default="admin" Mode=""
           Description="Initial admin portal password. Only used the very first time the container starts (before the database exists) — change it from within the admin portal afterward."
