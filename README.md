@@ -1,4 +1,4 @@
-# Unraid-CA
+# AoN-Unraid-Apps
 
 Unraid Community Applications templates for my self-hosted apps. One folder per app.
 
