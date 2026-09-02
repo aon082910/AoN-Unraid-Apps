@@ -37,6 +37,13 @@ parts catalog to search alongside crawled listings, or describe what you're buil
 in plain language and let AI (a cloud key or a local Ollama instance, both optional)
 draft the parts list for you before it's priced and linked.
 
+**AppForge Hub** - a self-hosted AI app builder. Describe an app in chat and it
+scaffolds a real, running web app (Express + SQLite + built-in auth) inside its own
+sandboxed process, with a live preview and an editable file tree - no cloud account,
+billing, or third-party signup involved. AI is pluggable and optional: use a cloud
+API (Anthropic, OpenAI, or any OpenAI-compatible endpoint) or run entirely offline
+against a local Ollama or llama.cpp server.
+
 All of them are MIT licensed. Issues and questions are handled on GitHub, on each
 app's own repository.
   </Profile>
