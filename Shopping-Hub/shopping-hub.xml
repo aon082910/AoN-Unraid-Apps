@@ -65,10 +65,10 @@ reverse image search, BOM costing, price/restock watches, full-text search.
   <License>MIT</License>
   <MinVer>6.9</MinVer>
 
-  <Screenshot>https://raw.githubusercontent.com/aon082910/Unraid-CA/main/Shopping-Hub/screenshots/01-product-comparison.png</Screenshot>
-  <Screenshot>https://raw.githubusercontent.com/aon082910/Unraid-CA/main/Shopping-Hub/screenshots/02-browse.png</Screenshot>
-  <Screenshot>https://raw.githubusercontent.com/aon082910/Unraid-CA/main/Shopping-Hub/screenshots/03-search.png</Screenshot>
-  <Screenshot>https://raw.githubusercontent.com/aon082910/Unraid-CA/main/Shopping-Hub/screenshots/04-bom.png</Screenshot>
+  <Screenshot>https://raw.githubusercontent.com/aon082910/AoN-Unraid-Apps/main/Shopping-Hub/screenshots/01-product-comparison.png</Screenshot>
+  <Screenshot>https://raw.githubusercontent.com/aon082910/AoN-Unraid-Apps/main/Shopping-Hub/screenshots/02-browse.png</Screenshot>
+  <Screenshot>https://raw.githubusercontent.com/aon082910/AoN-Unraid-Apps/main/Shopping-Hub/screenshots/03-search.png</Screenshot>
+  <Screenshot>https://raw.githubusercontent.com/aon082910/AoN-Unraid-Apps/main/Shopping-Hub/screenshots/04-bom.png</Screenshot>
 
   <ExtraParams>--shm-size=1g</ExtraParams>
   <PostArgs/>
