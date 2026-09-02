@@ -32,6 +32,7 @@ icon.png                repository icon
 Shopping-Hub/
   shopping-hub.xml      container template
   icon.png              app icon
+  screenshots/          listing screenshots
 AoNarr/
   aonarr.xml            container template
   icon.png              app icon
