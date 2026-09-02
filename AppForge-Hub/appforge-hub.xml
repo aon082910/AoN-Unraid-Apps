@@ -28,8 +28,8 @@ extra needs to be exposed.
   <Category>Tools:Utilities Network:Web Development:AI</Category>
   <WebUI>http://[IP]:[PORT:8000]/</WebUI>
   <Icon>https://raw.githubusercontent.com/aon082910/AoN-Unraid-Apps/main/AppForge-Hub/icon.png</Icon>
-  <Date>2026-09-01</Date>
-  <Changes>Initial release</Changes>
+  <Date>2026-09-02</Date>
+  <Changes>Crash auto-fix loop, streamed generation, logs viewer, project download</Changes>
   <MinVer>6.1</MinVer>
   <Description>
 Self-hosted AI app builder -- describe an app in chat, get a real running web app
