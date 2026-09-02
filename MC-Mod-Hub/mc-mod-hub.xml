@@ -35,12 +35,22 @@ automatically extracted from each video's description.
 CurseForge and YouTube API keys (both free, both optional but recommended) are entered and changed
 from the built-in admin portal after first boot at /admin.html - no file editing required, and no
 key ever needs to be baked into the container.
+
+Search results and the notice board are cached (configurable TTL) so repeat searches are instant
+and the scraped sites aren't hit on every page load.
+
+Optionally mount your Minecraft server's mods folder at /mods (off by default, one toggle in admin
+config) to unlock two more things: an "Install to my server" button on Modrinth/CurseForge results
+that downloads straight into that folder, and a "My Mods" update checker that identifies every
+installed .jar by exact content hash - SHA1 against Modrinth, murmur2 fingerprint against
+CurseForge, the same method their own official apps use, never filename guessing - and flags
+anything with a newer version available.
   </Overview>
 
   <Category>Tools:Utilities</Category>
   <ExtraSearchTerms>minecraft mod addon search modrinth curseforge planetminecraft 9minecraft betterbedrock bedrock java edition modpack resourcepack shader</ExtraSearchTerms>
   <Requires>Optional but recommended: a free CurseForge API key (console.curseforge.com) and YouTube Data API v3 key (Google Cloud Console) — both entered from the admin portal after first boot, not required to install or run the container.</Requires>
-  <Date>2026-08-31</Date>
+  <Date>2026-09-02</Date>
   <License>MIT</License>
   <MinVer>6.9</MinVer>
 
@@ -58,6 +68,10 @@ key ever needs to be baked into the container.
   <Config Name="Data" Target="/data" Default="/mnt/user/appdata/mc-mod-hub" Mode="rw"
           Description="Persistent storage for the settings/config database (API keys, source toggles, admin password)."
           Type="Path" Display="always" Required="true" Mask="false">/mnt/user/appdata/mc-mod-hub</Config>
+
+  <Config Name="Mods Folder" Target="/mods" Default="" Mode="rw"
+          Description="Optional: your Minecraft server's mods folder. Only needed for the &quot;Install to my server&quot; button and the update checker (both off by default — enable in admin config after mounting this). Leave blank to skip."
+          Type="Path" Display="advanced" Required="false" Mask="false"></Config>
 
   <Config Name="SESSION_SECRET" Target="SESSION_SECRET" Default="" Mode=""
           Description="Optional: random string used to sign admin login sessions. Leave blank and the app generates and persists one on first boot — set this only if you want to fix it yourself (e.g. sharing a secret across multiple instances)."
