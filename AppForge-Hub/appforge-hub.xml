@@ -29,7 +29,7 @@ extra needs to be exposed.
   <WebUI>http://[IP]:[PORT:8000]/</WebUI>
   <Icon>https://raw.githubusercontent.com/aon082910/AoN-Unraid-Apps/main/AppForge-Hub/icon.png</Icon>
   <Date>2026-09-02</Date>
-  <Changes>Crash auto-fix loop, streamed generation, logs viewer, project download</Changes>
+  <Changes>Syntax-highlighted file editor, AI provider connection test</Changes>
   <MinVer>6.1</MinVer>
   <Description>
 Self-hosted AI app builder -- describe an app in chat, get a real running web app
