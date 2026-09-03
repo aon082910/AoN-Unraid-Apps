@@ -53,8 +53,8 @@ raw file copy while the container is running.
   <Category>Productivity: Tools:Utilities</Category>
   <ExtraSearchTerms>car auto vehicle repair shop management work order estimate invoice inventory mechanic garage automotive diagnostic OBD DTC</ExtraSearchTerms>
   <Requires>Internet access is optional -- only needed for the VIN decode, recalls, specs, and free-guide-search features. Everything else works fully offline.</Requires>
-  <Date>2026-09-02</Date>
-  <Changes>v1.0.0: initial release</Changes>
+  <Date>2026-09-03</Date>
+  <Changes>v1.0.0: initial release, built and published via CI</Changes>
   <MinVer>6.1</MinVer>
   <Description>
 Self-hosted repair-reference (vehicles, DTC lookup, wiring diagrams) and

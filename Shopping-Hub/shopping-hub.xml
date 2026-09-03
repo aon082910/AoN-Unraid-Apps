@@ -50,18 +50,30 @@ return zero listings.
 
 Everything lives under the single /config mount: database, images, browser profile and
 the editable YAML config. Back that up and you have backed up the app.
+
+A slim image (allornothing/shopping-hub:slim, ~0.31GB vs ~1.17GB) is available if you
+don't need the six JavaScript-rendered adapters or the eBay/break-even baseline --
+change the Repository field above to use it.
   </Overview>
 
   <Category>Productivity: Tools:Utilities</Category>
   <ExtraSearchTerms>shopping price comparison aliexpress alibaba dhgate banggood ebay scraper dropshipping sourcing importing</ExtraSearchTerms>
   <Requires>Internet access. A residential proxy is recommended for sustained crawling.</Requires>
   <Changes>
+### 1.0.1
+Added a slim image variant (allornothing/shopping-hub:slim) that drops the bundled
+browser -- 0.31GB pulled vs 1.17GB, 1.32GB on disk vs 4.2GB. Trade-off: slim loses
+the six adapters that need JavaScript rendering, and losing eBay also loses the US
+retail baseline and break-even comparison that depends on it. Also fixes a silent
+failure where a missing browser binary (the slim case) was swallowed into "0
+listings" instead of a clear error.
+
 ### 1.0.0
 Initial release. Adapters for AliExpress, Alibaba, DHgate, Banggood, Made-in-China,
 Geekbuying, Chinavasion and eBay. Landed-cost comparison, break-even analysis,
 reverse image search, BOM costing, price/restock watches, full-text search.
   </Changes>
-  <Date>2026-08-31</Date>
+  <Date>2026-09-03</Date>
   <License>MIT</License>
   <MinVer>6.9</MinVer>
 
