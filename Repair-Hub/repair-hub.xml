@@ -26,11 +26,12 @@ yourself (repair guides, wiring diagrams, photos).
 
 Full shop management on top: customers, work orders, estimates with
 no-login customer approval (signature capture included), appointment
-scheduling, parts inventory, digital vehicle inspections, PDF invoices, and
-revenue reports. Three account tiers share one login page -- staff (full
-access), technicians (repair reference plus only their assigned jobs), and
-customers (their own vehicles and service history, via a login staff can
-create for them).
+scheduling, parts inventory, digital vehicle inspections, sales tax,
+payment tracking, warranty tracking, a technician time clock, PDF invoices,
+and revenue reports. Three account tiers share one login page -- staff
+(full access), technicians (repair reference plus only their assigned
+jobs), and customers (their own vehicles and service history, via a login
+staff can create for them).
 
 Does not scrape, mirror, or resell ALLDATA or any other paid data provider --
 if you already pay for ALLDATA, a vehicle's page lets you save a quick link
@@ -54,7 +55,17 @@ raw file copy while the container is running.
   <ExtraSearchTerms>car auto vehicle repair shop management work order estimate invoice inventory mechanic garage automotive diagnostic OBD DTC</ExtraSearchTerms>
   <Requires>Internet access is optional -- only needed for the VIN decode, recalls, specs, and free-guide-search features. Everything else works fully offline.</Requires>
   <Date>2026-09-03</Date>
-  <Changes>v1.0.0: initial release, built and published via CI</Changes>
+  <Changes>
+### 1.1.0
+Sales tax (shop-wide rate, per-customer exempt), invoice creation with
+partial-payment tracking, an accounting CSV export, warranty tracking on
+completed work orders, a technician time clock, VIN barcode scanning on
+Add Vehicle, and two new vehicle-page data sources: NHTSA crash-test safety
+ratings and a Wikipedia model summary.
+
+### 1.0.0
+Initial release, built and published via CI.
+  </Changes>
   <MinVer>6.1</MinVer>
   <Description>
 Self-hosted repair-reference (vehicles, DTC lookup, wiring diagrams) and
