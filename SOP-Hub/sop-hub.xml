@@ -1,0 +1,88 @@
+<?xml version="1.0"?>
+<Container version="2">
+  <Name>sop-hub</Name>
+  <Repository>allornothing/sop-hub:latest</Repository>
+  <Registry>https://hub.docker.com/r/allornothing/sop-hub</Registry>
+  <Network>bridge</Network>
+  <MyIP/>
+  <Shell>sh</Shell>
+  <Privileged>false</Privileged>
+
+  <Support>https://github.com/aon082910/sop-hub/issues</Support>
+  <Project>https://github.com/aon082910/sop-hub</Project>
+  <TemplateURL>https://raw.githubusercontent.com/aon082910/AoN-Unraid-Apps/main/SOP-Hub/sop-hub.xml</TemplateURL>
+  <ReadMe>https://raw.githubusercontent.com/aon082910/sop-hub/main/README.md</ReadMe>
+  <Icon>https://raw.githubusercontent.com/aon082910/AoN-Unraid-Apps/main/SOP-Hub/icon.png</Icon>
+  <WebUI>http://[IP]:[PORT:8080]/</WebUI>
+  <License>MIT</License>
+
+  <Overview>
+Self-hosted clone of Scribe: turn a workflow into a step-by-step visual guide,
+with AI help from either a local model or a cloud provider.
+
+Capture a process two ways -- upload screenshots manually in the editor, or
+install the included Chrome extension and just click through the workflow;
+it auto-captures a screenshot and click position for every click and uploads
+the whole walkthrough as a new guide in one step. From there, AI can describe
+each screenshot, write the guide's title and summary, rewrite step text for
+clarity, and answer questions about a guide in a chat panel -- all routed
+through one provider abstraction so local (Ollama) and cloud (Anthropic
+Claude, OpenAI, or any OpenAI-compatible endpoint) are interchangeable per
+request. Finished guides publish to a public read-only share link, or export
+straight to PDF, HTML, or Markdown with embedded step images.
+
+Everything -- Postgres, the API, and the built frontend -- runs in this one
+container. SET JWT_SECRET before starting (any long random string). AI is
+optional and defaults to a local Ollama instance you point it at (does not
+run inside this container); set the Anthropic/OpenAI/custom variables
+instead if you'd rather use a cloud provider, or skip AI entirely and use
+SOP-Hub as a plain guide editor.
+
+Everything lives under the single /config mount: the embedded Postgres
+database and all uploaded step screenshots. Back that one directory up and
+you've backed up the whole app.
+  </Overview>
+
+  <Category>Productivity: Tools:Utilities</Category>
+  <ExtraSearchTerms>scribe documentation how-to guide sop standard operating procedure process screenshot tutorial knowledge base wiki ai</ExtraSearchTerms>
+  <Requires>Internet access is optional -- only needed if you point it at a cloud AI provider. Everything else, including local AI via your own Ollama instance, works fully offline/on-LAN.</Requires>
+  <Date>2026-09-03</Date>
+  <Changes>
+### 1.0.0
+Initial release: manual and browser-extension step capture, AI step
+descriptions/summaries/rewrites/chat (local or cloud), publish-to-share-link,
+and PDF/HTML/Markdown export.
+  </Changes>
+  <MinVer>6.1</MinVer>
+  <Description>
+Self-hosted Scribe clone: capture a workflow (manually or via the included
+browser extension) into a step-by-step guide, with AI help from a local
+model or a cloud provider, publish-to-share-link, and PDF/HTML/Markdown
+export.
+  </Description>
+
+  <Config Name="WebUI Port" Target="8080" Default="8080" Mode="tcp" Description="Web UI / API port" Type="Port" Display="always" Required="true" Mask="false">8080</Config>
+  <Config Name="Appdata" Target="/config" Default="/mnt/user/appdata/sop-hub" Mode="rw" Description="Embedded Postgres database and all uploaded step screenshots -- the only folder you need to back up" Type="Path" Display="always" Required="true" Mask="false">/mnt/user/appdata/sop-hub</Config>
+
+  <Config Name="PUID" Target="PUID" Default="99" Mode="" Description="Unraid's nobody user -- keeps appdata editable from the host" Type="Variable" Display="always" Required="true" Mask="false">99</Config>
+  <Config Name="PGID" Target="PGID" Default="100" Mode="" Description="Unraid's users group" Type="Variable" Display="always" Required="true" Mask="false">100</Config>
+  <Config Name="TZ" Target="TZ" Default="Etc/UTC" Mode="" Description="Timezone for dates shown in the app" Type="Variable" Display="always" Required="true" Mask="false">Etc/UTC</Config>
+
+  <Config Name="JWT Secret" Target="JWT_SECRET" Default="" Mode="" Description="Required. Any long random string -- used to sign auth tokens. Generate one with: openssl rand -hex 32" Type="Variable" Display="always" Required="true" Mask="true"></Config>
+
+  <Config Name="AI Provider" Target="AI_DEFAULT_PROVIDER" Default="ollama" Mode="" Description="ollama (local) | anthropic | openai | custom -- which AI backend features use by default" Type="Variable" Display="always" Required="true" Mask="false">ollama</Config>
+  <Config Name="Ollama Base URL" Target="OLLAMA_BASE_URL" Default="http://ollama:11434" Mode="" Description="Only used when AI Provider = ollama. Point at your own Ollama instance -- it does not run inside this container." Type="Variable" Display="always" Required="false" Mask="false">http://ollama:11434</Config>
+  <Config Name="Ollama Model" Target="OLLAMA_MODEL" Default="llava" Mode="" Description="Use a vision-capable model (e.g. llava) so screenshot-description AI works" Type="Variable" Display="always" Required="false" Mask="false">llava</Config>
+
+  <Config Name="Anthropic API Key" Target="ANTHROPIC_API_KEY" Default="" Mode="" Description="Only used when AI Provider = anthropic" Type="Variable" Display="advanced" Required="false" Mask="true"></Config>
+  <Config Name="Anthropic Model" Target="ANTHROPIC_MODEL" Default="claude-sonnet-5" Mode="" Description="" Type="Variable" Display="advanced" Required="false" Mask="false">claude-sonnet-5</Config>
+  <Config Name="OpenAI API Key" Target="OPENAI_API_KEY" Default="" Mode="" Description="Only used when AI Provider = openai" Type="Variable" Display="advanced" Required="false" Mask="true"></Config>
+  <Config Name="OpenAI Model" Target="OPENAI_MODEL" Default="gpt-4o-mini" Mode="" Description="" Type="Variable" Display="advanced" Required="false" Mask="false">gpt-4o-mini</Config>
+  <Config Name="Custom OpenAI-compatible Base URL" Target="CUSTOM_OPENAI_BASE_URL" Default="" Mode="" Description="Only used when AI Provider = custom -- any OpenAI-compatible API (LM Studio, vLLM, OpenRouter, etc.)" Type="Variable" Display="advanced" Required="false" Mask="false"></Config>
+  <Config Name="Custom OpenAI-compatible API Key" Target="CUSTOM_OPENAI_API_KEY" Default="" Mode="" Description="" Type="Variable" Display="advanced" Required="false" Mask="true"></Config>
+  <Config Name="Custom OpenAI-compatible Model" Target="CUSTOM_OPENAI_MODEL" Default="" Mode="" Description="" Type="Variable" Display="advanced" Required="false" Mask="false"></Config>
+
+  <Config Name="Postgres User" Target="POSTGRES_USER" Default="sophub" Mode="" Description="Embedded database user -- not exposed outside the container" Type="Variable" Display="advanced" Required="false" Mask="false">sophub</Config>
+  <Config Name="Postgres Password" Target="POSTGRES_PASSWORD" Default="sophub" Mode="" Description="Embedded database password -- not exposed outside the container" Type="Variable" Display="advanced" Required="false" Mask="true">sophub</Config>
+  <Config Name="Postgres Database" Target="POSTGRES_DB" Default="sophub" Mode="" Description="" Type="Variable" Display="advanced" Required="false" Mask="false">sophub</Config>
+</Container>
