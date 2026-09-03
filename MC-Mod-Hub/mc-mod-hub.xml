@@ -17,15 +17,16 @@
 
   <Overview>
 Self-hosted Minecraft mod/addon search hub. Aggregates search results from Modrinth, CurseForge,
-PlanetMinecraft, 9Minecraft, and BetterBedrock into one searchable list, styled after a familiar
-category-browser layout (category pills, a "newest posts" notice board, sortable results table).
+PlanetMinecraft, 9Minecraft, BetterBedrock, Hangar (PaperMC's official plugin repo), and SpigotMC
+into one searchable list, styled after a familiar category-browser layout (category pills, a
+"newest posts" notice board, sortable results table).
 
 Every result and every mod detail page shows the required game edition (Java or Bedrock) and the
 game version(s) it supports - read directly from Modrinth/CurseForge's own API fields, and
 best-effort parsed from listing text on the scraped sites.
 
 Browse by category (Mods, Modpacks, Resource/Texture Packs, Data Packs, Shaders, Maps/Worlds,
-Bedrock Add-Ons) without typing a search term, via category tiles or the sidebar.
+Bedrock Add-Ons, Server Plugins) without typing a search term, via category tiles or the sidebar.
 
 Each mod's detail page also surfaces community discussion pulled from Reddit (since none of these
 platforms expose a public reviews API) with heuristic fake-review flags - duplicate text, generic
@@ -51,6 +52,7 @@ anything with a newer version available.
   <ExtraSearchTerms>minecraft mod addon search modrinth curseforge planetminecraft 9minecraft betterbedrock bedrock java edition modpack resourcepack shader</ExtraSearchTerms>
   <Requires>Optional but recommended: a free CurseForge API key (console.curseforge.com) and YouTube Data API v3 key (Google Cloud Console) — both entered from the admin portal after first boot, not required to install or run the container.</Requires>
   <Date>2026-09-02</Date>
+  <!-- Updated same day: added Hangar and SpigotMC (via Spiget) as search sources -->
   <License>MIT</License>
   <MinVer>6.9</MinVer>
 
