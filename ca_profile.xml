@@ -1,9 +1,10 @@
 <?xml version="1.0"?>
 <CommunityApplications>
   <Profile>
-Self-hosted aggregators for Unraid. Each app pulls a category of thing you would
-otherwise search for across a dozen sites, and puts it behind one search box on your
-own server.
+Self-hosted tools for Unraid. Most pull a category of thing you would otherwise
+search for across a dozen sites and put it behind one search box on your own server;
+a couple are full offline reference/management apps built the same way -- one
+container, one database, no cloud account required.
 
 **Shopping Hub** - cross-marketplace product aggregation. Crawls AliExpress, Alibaba,
 DHgate, Banggood, Made-in-China, Geekbuying, Chinavasion and eBay, works out which
@@ -43,6 +44,16 @@ sandboxed process, with a live preview and an editable file tree - no cloud acco
 billing, or third-party signup involved. AI is pluggable and optional: use a cloud
 API (Anthropic, OpenAI, or any OpenAI-compatible endpoint) or run entirely offline
 against a local Ollama or llama.cpp server.
+
+**Repair-Hub** - a self-hosted repair-reference and shop-management app for auto
+repair. Vehicle records with VIN decode, live NHTSA recalls/complaints and EPA
+fuel-economy specs, a DTC lookup preloaded with the ~140 generic OBD-II codes, and
+free-text search against iFixit and Wikimedia Commons for guides/reference photos --
+backed by content you add yourself. Full shop management on top: customers, work
+orders, estimates with no-login customer approval and signature capture, appointment
+scheduling, parts inventory, digital vehicle inspections, PDF invoices, and revenue
+reports, across three account tiers (staff, technicians, customers) sharing one login
+page. Never scrapes or resells ALLDATA or any other paid data provider.
 
 All of them are MIT licensed. Issues and questions are handled on GitHub, on each
 app's own repository.
