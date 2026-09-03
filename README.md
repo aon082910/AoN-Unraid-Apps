@@ -9,6 +9,7 @@ Unraid Community Applications templates for my self-hosted apps. One folder per 
 | **MC-Mod-Hub** | [`MC-Mod-Hub/`](MC-Mod-Hub/mc-mod-hub.xml) | [aon082910/mc-mod-hub](https://github.com/aon082910/mc-mod-hub) | [`allornothing/mc-mod-hub`](https://hub.docker.com/r/allornothing/mc-mod-hub) |
 | **Build-Hub** | [`Build-Hub/`](Build-Hub/build-hub.xml) | [aon082910/build-hub](https://github.com/aon082910/build-hub) | [`allornothing/build-hub`](https://hub.docker.com/r/allornothing/build-hub) |
 | **AppForge Hub** | [`AppForge-Hub/`](AppForge-Hub/appforge-hub.xml) | [aon082910/appforge-hub](https://github.com/aon082910/appforge-hub) | [`allornothing/appforge-hub`](https://hub.docker.com/r/allornothing/appforge-hub) |
+| **Model Hub** | [`Model-Hub/`](Model-Hub/model-hub.xml) | [aon082910/model-hub](https://github.com/aon082910/model-hub) | [`allornothing/model-hub`](https://hub.docker.com/r/allornothing/model-hub) |
 
 ## Installing
 
@@ -44,6 +45,9 @@ Build-Hub/
   icon.png              app icon
 AppForge-Hub/
   appforge-hub.xml      container template
+  icon.png              app icon
+Model-Hub/
+  model-hub.xml         container template
   icon.png              app icon
 ```
 
