@@ -18,9 +18,10 @@
   <Overview>
 Self-hosted Minecraft mod/addon search hub. Aggregates search results from Modrinth, CurseForge,
 PlanetMinecraft, 9Minecraft, BetterBedrock, Hangar (PaperMC's official plugin repo), SpigotMC,
-TLMods (TLauncher's mod/modpack/resourcepack/map/shaderpack mirror), and MinecraftSkins.net
-into one searchable list, styled after a familiar category-browser layout (category pills, a
-"newest posts" notice board, sortable results table).
+TLMods (TLauncher's mod/modpack/resourcepack/map/shaderpack mirror), MinecraftSkins.net,
+Polymart (Spigot/Paper plugin marketplace), and GitHub (repos tagged "minecraft", for mods and
+plugins with no listing anywhere else) into one searchable list, styled after a familiar
+category-browser layout (category pills, a "newest posts" notice board, sortable results table).
 
 Every result and every mod detail page shows the required game edition (Java or Bedrock) and the
 game version(s) it supports - read directly from Modrinth/CurseForge's own API fields, and
@@ -55,6 +56,7 @@ anything with a newer version available.
   <Date>2026-09-06</Date>
   <!-- 2026-09-02: added Hangar and SpigotMC (via Spiget) as search sources -->
   <!-- 2026-09-06: added TLMods and MinecraftSkins.net (new Skins category) as search sources -->
+  <!-- 2026-09-06: added Polymart and GitHub as search sources; extended Skins to 9Minecraft -->
   <License>MIT</License>
   <MinVer>6.9</MinVer>
 
