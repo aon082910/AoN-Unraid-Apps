@@ -44,11 +44,12 @@ Search results and the notice board are cached (configurable TTL) so repeat sear
 and the scraped sites aren't hit on every page load.
 
 Optionally mount your Minecraft server's mods folder at /mods (off by default, one toggle in admin
-config) to unlock two more things: an "Install to my server" button on Modrinth/CurseForge results
-that downloads straight into that folder, and a "My Mods" update checker that identifies every
-installed .jar by exact content hash - SHA1 against Modrinth, murmur2 fingerprint against
-CurseForge, the same method their own official apps use, never filename guessing - and flags
-anything with a newer version available.
+config) to unlock two more things: an "Install to my server" button on Modrinth/CurseForge/Hangar/
+SpigotMC/GitHub results that downloads straight into that folder, and a "My Mods" update checker.
+Modrinth/CurseForge are identified by exact content hash (SHA1/murmur2, the same method their own
+official apps use, never filename guessing); Hangar/SpigotMC/GitHub have no public hash-lookup API,
+so anything installed through this app's own button is instead tracked by recording what was
+installed and re-checking that source directly.
   </Overview>
 
   <Category>Tools:Utilities</Category>
@@ -59,6 +60,7 @@ anything with a newer version available.
   <!-- 2026-09-06: added TLMods and MinecraftSkins.net (new Skins category) as search sources -->
   <!-- 2026-09-06: added Polymart and GitHub as search sources; extended Skins to 9Minecraft -->
   <!-- 2026-09-06: added MCreator.net as a search source -->
+  <!-- 2026-09-06: update tracking for Hangar/SpigotMC/GitHub installs; expandable notice board -->
   <License>MIT</License>
   <MinVer>6.9</MinVer>
 
