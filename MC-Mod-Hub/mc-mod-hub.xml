@@ -21,12 +21,15 @@ PlanetMinecraft, 9Minecraft, BetterBedrock, Hangar (PaperMC's official plugin re
 TLMods (TLauncher's mod/modpack/resourcepack/map/shaderpack mirror), MinecraftSkins.net,
 Polymart (Spigot/Paper plugin marketplace), GitHub (repos tagged "minecraft", for mods and
 plugins with no listing anywhere else), and MCreator.net into one searchable list, styled after
-a familiar category-browser layout (category pills, a "newest posts" notice board, sortable
-results table).
+a familiar category-browser layout (category pills, an expandable "newest posts" notice board,
+a results table sortable and filterable by every column - name, source, edition, version,
+downloads, posted date, and last-updated date).
 
-Every result and every mod detail page shows the required game edition (Java or Bedrock) and the
-game version(s) it supports - read directly from Modrinth/CurseForge's own API fields, and
-best-effort parsed from listing text on the scraped sites.
+Every result and every mod detail page shows the required game edition (Java or Bedrock), the
+game version(s) it supports, and when available the date it was first posted and last updated -
+read directly from each source's own API fields where one publishes them, and best-effort parsed
+from listing text on the scraped sites (which don't carry post/update dates at all - shown as a
+dash rather than a guess).
 
 Browse by category (Mods, Modpacks, Resource/Texture Packs, Data Packs, Shaders, Maps/Worlds,
 Bedrock Add-Ons, Server Plugins, Skins) without typing a search term, via category tiles or the sidebar.
@@ -61,6 +64,7 @@ installed and re-checking that source directly.
   <!-- 2026-09-06: added Polymart and GitHub as search sources; extended Skins to 9Minecraft -->
   <!-- 2026-09-06: added MCreator.net as a search source -->
   <!-- 2026-09-06: update tracking for Hangar/SpigotMC/GitHub installs; expandable notice board -->
+  <!-- 2026-09-06: sortable/filterable results table with Posted and Updated date columns -->
   <License>MIT</License>
   <MinVer>6.9</MinVer>
 
