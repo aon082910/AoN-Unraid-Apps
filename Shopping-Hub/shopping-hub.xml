@@ -60,6 +60,13 @@ change the Repository field above to use it.
   <ExtraSearchTerms>shopping price comparison aliexpress alibaba dhgate banggood ebay scraper dropshipping sourcing importing</ExtraSearchTerms>
   <Requires>Internet access. A residential proxy is recommended for sustained crawling.</Requires>
   <Changes>
+### 1.0.2
+Searching for something nobody has crawled yet now starts a crawl for it in the
+background; the search returns immediately with whatever is already known and the
+results page refreshes itself when new listings land. Gated so it is safe on a public
+box: only thin result sets trigger it, a keyword is not re-crawled for 24 hours
+however often it is searched, and one worker drains a bounded queue.
+
 ### 1.0.1
 Added a slim image variant (allornothing/shopping-hub:slim) that drops the bundled
 browser -- 0.31GB pulled vs 1.17GB, 1.32GB on disk vs 4.2GB. Trade-off: slim loses
@@ -140,4 +147,8 @@ reverse image search, BOM costing, price/restock watches, full-text search.
   <Config Name="CN Provider Key" Target="CN_PROVIDER_KEY" Default="" Mode=""
           Description="Optional API key for Taobao/Tmall/1688 data. Without it those three need a one-time browser login, which is awkward in a container."
           Type="Variable" Display="advanced" Required="false" Mask="true"/>
+
+  <Config Name="Trust Proxy Headers" Target="SOURCEHUB_TRUST_PROXY" Default="false" Mode=""
+          Description="Set true ONLY if SWAG, Nginx Proxy Manager, Traefik or similar sits in front of this container. Searching for something uncrawled starts a background crawl, and that is rate limited per caller by source address -- behind a proxy every request looks like it came from the proxy, so one visitor's limit is shared by everyone. Turning this on reads X-Forwarded-For instead. Leave it false when the port is exposed directly: the header is otherwise whatever the client typed, and trusting it lets one caller bypass the limit entirely."
+          Type="Variable" Display="advanced" Required="false" Mask="false"/>
 </Container>
