@@ -17,7 +17,8 @@
 
   <Overview>
 Self-hosted Minecraft mod/addon search hub. Aggregates search results from Modrinth, CurseForge,
-PlanetMinecraft, 9Minecraft, BetterBedrock, Hangar (PaperMC's official plugin repo), and SpigotMC
+PlanetMinecraft, 9Minecraft, BetterBedrock, Hangar (PaperMC's official plugin repo), SpigotMC,
+TLMods (TLauncher's mod/modpack/resourcepack/map/shaderpack mirror), and MinecraftSkins.net
 into one searchable list, styled after a familiar category-browser layout (category pills, a
 "newest posts" notice board, sortable results table).
 
@@ -26,7 +27,7 @@ game version(s) it supports - read directly from Modrinth/CurseForge's own API f
 best-effort parsed from listing text on the scraped sites.
 
 Browse by category (Mods, Modpacks, Resource/Texture Packs, Data Packs, Shaders, Maps/Worlds,
-Bedrock Add-Ons, Server Plugins) without typing a search term, via category tiles or the sidebar.
+Bedrock Add-Ons, Server Plugins, Skins) without typing a search term, via category tiles or the sidebar.
 
 Each mod's detail page also surfaces community discussion pulled from Reddit (since none of these
 platforms expose a public reviews API) with heuristic fake-review flags - duplicate text, generic
@@ -51,8 +52,9 @@ anything with a newer version available.
   <Category>Tools:Utilities</Category>
   <ExtraSearchTerms>minecraft mod addon search modrinth curseforge planetminecraft 9minecraft betterbedrock bedrock java edition modpack resourcepack shader</ExtraSearchTerms>
   <Requires>Optional but recommended: a free CurseForge API key (console.curseforge.com) and YouTube Data API v3 key (Google Cloud Console) — both entered from the admin portal after first boot, not required to install or run the container.</Requires>
-  <Date>2026-09-02</Date>
-  <!-- Updated same day: added Hangar and SpigotMC (via Spiget) as search sources -->
+  <Date>2026-09-06</Date>
+  <!-- 2026-09-02: added Hangar and SpigotMC (via Spiget) as search sources -->
+  <!-- 2026-09-06: added TLMods and MinecraftSkins.net (new Skins category) as search sources -->
   <License>MIT</License>
   <MinVer>6.9</MinVer>
 
