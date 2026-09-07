@@ -32,13 +32,20 @@ MakerWorld, and optional webhook notifications (ntfy/Discord/Slack).
   <Requires>Optional: an Ollama container (install the official "ollama" template from
 Community Applications first) if you want local AI instead of an API key.</Requires>
   <Changes>
+### 1.1.0
+Live STEP/STP viewer (client-side WASM via occt-import-js, no server round
+trip), rate limiting on the login endpoint (5 attempts / 15 min per IP), and
+a mobile-responsive UI (scrollable tab bar, stacked forms, full-screen viewer
+modal, larger touch targets).
+
 ### 1.0.0
 Initial release. STL/3MF/OBJ/FBX live viewer, AI auto-tagging + semantic search
 (local Ollama or API), smart collections, filament inventory, print queue with
-volumetric/slicer-based estimates, session auth, webhook notifications, and a
-Printables/MakerWorld browser extension.
+volumetric/slicer-based estimates, session auth, webhook notifications, a
+Printables/MakerWorld browser extension, and PUID/PGID support so files under
+/config are owned by a real host user instead of root.
   </Changes>
-  <Date>2026-09-02</Date>
+  <Date>2026-09-07</Date>
   <License>MIT</License>
   <MinVer>6.9</MinVer>
 
@@ -60,6 +67,14 @@ Printables/MakerWorld browser extension.
   <Config Name="App Config/DB" Target="/config" Default="/mnt/user/appdata/model-hub" Mode="rw"
           Description="Where the SQLite database, thumbnails, and settings are stored."
           Type="Path" Display="always" Required="true" Mask="false">/mnt/user/appdata/model-hub</Config>
+
+  <Config Name="PUID" Target="PUID" Default="99" Mode=""
+          Description="Unraid's nobody user -- keeps /config editable from the host"
+          Type="Variable" Display="always" Required="true" Mask="false">99</Config>
+
+  <Config Name="PGID" Target="PGID" Default="100" Mode=""
+          Description="Unraid's users group"
+          Type="Variable" Display="always" Required="true" Mask="false">100</Config>
 
   <Config Name="Scan Interval" Target="SCAN_INTERVAL_SECONDS" Default="300" Mode=""
           Description="Seconds between automatic background library scans."
