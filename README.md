@@ -12,6 +12,7 @@ Unraid Community Applications templates for my self-hosted apps. One folder per 
 | **Model Hub** | [`Model-Hub/`](Model-Hub/model-hub.xml) | [aon082910/model-hub](https://github.com/aon082910/model-hub) | [`allornothing/model-hub`](https://hub.docker.com/r/allornothing/model-hub) |
 | **Repair-Hub** | [`Repair-Hub/`](Repair-Hub/repair-hub.xml) | [aon082910/repair-hub](https://github.com/aon082910/repair-hub) | [`allornothing/repair-hub`](https://hub.docker.com/r/allornothing/repair-hub) |
 | **SOP-Hub** | [`SOP-Hub/`](SOP-Hub/sop-hub.xml) | [aon082910/sop-hub](https://github.com/aon082910/sop-hub) | [`allornothing/sop-hub`](https://hub.docker.com/r/allornothing/sop-hub) |
+| **Channel Hub** | [`Channel-Hub/`](Channel-Hub/channel-hub.xml) | [aon082910/channel-hub](https://github.com/aon082910/channel-hub) | [`allornothing/channel-hub`](https://hub.docker.com/r/allornothing/channel-hub) |
 
 ## Installing
 
@@ -56,6 +57,9 @@ Repair-Hub/
   icon.png              app icon
 SOP-Hub/
   sop-hub.xml           container template
+  icon.png              app icon
+Channel-Hub/
+  channel-hub.xml       container template
   icon.png              app icon
 ```
 
