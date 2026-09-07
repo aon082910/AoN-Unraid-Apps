@@ -32,6 +32,15 @@ MakerWorld, and optional webhook notifications (ntfy/Discord/Slack).
   <Requires>Optional: an Ollama container (install the official "ollama" template from
 Community Applications first) if you want local AI instead of an API key.</Requires>
   <Changes>
+### 1.2.0
+Large-library fixes contributed by @justindgreen: the initial/background scan
+now runs off the main event loop so the WebUI and health check come up
+immediately instead of appearing stuck on big libraries; mesh/thumbnail
+memory use is now bounded so indexing a large library no longer grows
+memory unboundedly; concurrent scans are rejected cleanly instead of
+racing on SQLite; the Library view is now paginated with full-library
+search instead of only showing the first 200 models.
+
 ### 1.1.0
 Live STEP/STP viewer (client-side WASM via occt-import-js, no server round
 trip), rate limiting on the login endpoint (5 attempts / 15 min per IP), and
