@@ -140,6 +140,18 @@ reverse image search, BOM costing, price/restock watches, full-text search.
           Description="Free from developer.ebay.com."
           Type="Variable" Display="advanced" Required="false" Mask="true"/>
 
+  <Config Name="AliExpress App Key" Target="ALIEXPRESS_APP_KEY" Default="" Mode=""
+          Description="From an AliExpress Affiliate app at portals.aliexpress.com (join the affiliate program, then create an app under its API section - the Dropshipping API is a different product and will not work here). Without this, AliExpress falls back to scraping its public search page. With it, the app also gets full category-tree crawling instead of only keyword search."
+          Type="Variable" Display="advanced" Required="false" Mask="false"/>
+
+  <Config Name="AliExpress App Secret" Target="ALIEXPRESS_APP_SECRET" Default="" Mode=""
+          Description="From the same AliExpress Affiliate app as App Key."
+          Type="Variable" Display="advanced" Required="false" Mask="true"/>
+
+  <Config Name="AliExpress Tracking ID" Target="ALIEXPRESS_TRACKING_ID" Default="" Mode=""
+          Description="Also from the Affiliate portal - required by the API on every call to attribute commission. Any tracking ID you create there works."
+          Type="Variable" Display="advanced" Required="false" Mask="false"/>
+
   <Config Name="Proxy" Target="SOURCEHUB_PROXY" Default="" Mode=""
           Description="Optional. One http://user:pass@host:port, or several comma-separated for round-robin. Strongly recommended for sustained crawling."
           Type="Variable" Display="advanced" Required="false" Mask="true"/>
