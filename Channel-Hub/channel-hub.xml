@@ -1,0 +1,68 @@
+<?xml version="1.0"?>
+<Container version="2">
+  <Name>ChannelHub</Name>
+  <Repository>allornothing/channel-hub:latest</Repository>
+  <Registry>https://hub.docker.com/r/allornothing/channel-hub</Registry>
+  <Network>bridge</Network>
+  <MyIP/>
+  <Shell>sh</Shell>
+  <Privileged>false</Privileged>
+  <Support>https://github.com/aon082910/channel-hub/issues</Support>
+  <Project>https://github.com/aon082910/channel-hub</Project>
+  <TemplateURL>https://raw.githubusercontent.com/aon082910/AoN-Unraid-Apps/main/Channel-Hub/channel-hub.xml</TemplateURL>
+  <ReadMe>https://raw.githubusercontent.com/aon082910/channel-hub/master/README.md</ReadMe>
+  <Icon>https://raw.githubusercontent.com/aon082910/AoN-Unraid-Apps/main/Channel-Hub/icon.png</Icon>
+  <WebUI>http://[IP]:[PORT:8085]/</WebUI>
+  <Overview>
+Self-hosted, open clone of Curacast's feature set: turn your Plex/Jellyfin/Emby
+library or local media folders into 24/7 broadcast-style channels with a real
+EPG (XMLTV), M3U playlist, and HDHomeRun emulation for Plex Live TV
+auto-discovery. Includes dayparting/appointment scheduling, bumper and
+mid-show commercial breaks (with an animated ffmpeg-rendered "Returning Soon"
+countdown filler as an alternative to pre-recorded clips), series-order
+playback, DVR-style recording, an in-browser Watch player with Chromecast/
+AirPlay casting, PIN-protected viewer profiles, and a public-domain
+commercials importer from archive.org. No license server, nothing phones
+home -- point it at your media, add channels, and go.
+  </Overview>
+  <Category>MediaApp:Video</Category>
+  <ExtraSearchTerms>live tv channel epg xmltv m3u hdhomerun plex jellyfin emby dvr curacast broadcast bumper commercial</ExtraSearchTerms>
+  <Requires/>
+  <Changes>
+### 1.0.0
+Initial release. Channel builder from Plex/Jellyfin/Emby or local folders, XMLTV/M3U/
+HDHomeRun emulation, dayparting, bumper and mid-show commercial breaks, animated
+"Returning Soon" filler, DVR recording, in-browser casting, viewer profiles, and an
+archive.org public-domain commercials importer.
+  </Changes>
+  <Date>2026-09-06</Date>
+  <License>MIT</License>
+  <MinVer>6.9</MinVer>
+
+  <ExtraParams/>
+  <PostArgs/>
+  <CPUset/>
+  <DateInstalled/>
+  <DonateText/>
+  <DonateLink/>
+
+  <Config Name="WebUI Port" Target="8085" Default="8085" Mode="tcp" Description="Web dashboard and stream/EPG/M3U port" Type="Port" Display="always" Required="true" Mask="false">8085</Config>
+
+  <Config Name="App Config/DB" Target="/config" Default="/mnt/user/appdata/channel-hub" Mode="rw" Description="Where the SQLite database, encryption key, and recordings are stored." Type="Path" Display="always" Required="true" Mask="false">/mnt/user/appdata/channel-hub</Config>
+
+  <Config Name="Media" Target="/media" Default="/mnt/user/media" Mode="ro" Description="Mount your media library (used for local-folder channels and bumpers)." Type="Path" Display="always" Required="false" Mask="false">/mnt/user/media</Config>
+
+  <Config Name="PUBLIC_URL" Target="PUBLIC_URL" Default="" Mode="" Description="Public base URL used in generated M3U/HDHomeRun links, e.g. http://192.168.1.50:8085. Leave blank to auto-detect from the request." Type="Variable" Display="always" Required="false" Mask="false"></Config>
+
+  <Config Name="Hardware Encoder" Target="HW_ENCODER" Default="" Mode="" Description="nvenc, vaapi, qsv, or leave blank for software encoding (libx264)." Type="Variable" Display="advanced" Required="false" Mask="false"></Config>
+
+  <Config Name="Admin Username" Target="ADMIN_USER" Default="" Mode="" Description="Set together with Admin Password to require login for the dashboard and API. Leave both blank to run without a login (fine on a trusted LAN)." Type="Variable" Display="always" Required="false" Mask="false"></Config>
+
+  <Config Name="Admin Password" Target="ADMIN_PASSWORD" Default="" Mode="" Description="Paired with Admin Username above." Type="Variable" Display="always" Required="false" Mask="true"></Config>
+
+  <Config Name="Stream Token" Target="STREAM_TOKEN" Default="" Mode="" Description="Optional shared secret required on stream/HLS URLs; auto-embedded into generated M3U and HDHomeRun lineup links so configured players keep working." Type="Variable" Display="advanced" Required="false" Mask="true"></Config>
+
+  <Config Name="Encryption Key" Target="ENCRYPTION_KEY" Default="" Mode="" Description="32-byte base64 key for encrypting stored Plex/Jellyfin/Emby tokens at rest. Leave blank to auto-generate and persist one under /config." Type="Variable" Display="advanced" Required="false" Mask="true"></Config>
+
+  <Config Name="Disable SSDP" Target="DISABLE_SSDP" Default="" Mode="" Description="Set to 'true' to disable the HDHomeRun/SSDP auto-discovery responder (e.g. if it conflicts with another tuner emulator on the network)." Type="Variable" Display="advanced" Required="false" Mask="false"></Config>
+</Container>

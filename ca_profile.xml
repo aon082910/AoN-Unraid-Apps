@@ -55,6 +55,15 @@ scheduling, parts inventory, digital vehicle inspections, PDF invoices, and reve
 reports, across three account tiers (staff, technicians, customers) sharing one login
 page. Never scrapes or resells ALLDATA or any other paid data provider.
 
+**Channel Hub** - self-hosted, open clone of Curacast's feature set. Turns a
+Plex/Jellyfin/Emby library or local media folders into 24/7 broadcast-style channels
+with a real EPG (XMLTV), M3U playlist, and HDHomeRun emulation for Plex Live TV
+auto-discovery. Includes dayparting/appointment scheduling, bumper and mid-show
+commercial breaks (with an animated ffmpeg-rendered "Returning Soon" countdown filler
+as an alternative to pre-recorded clips), series-order playback, DVR-style recording,
+an in-browser Watch player with Chromecast/AirPlay casting, PIN-protected viewer
+profiles, and a public-domain commercials importer from archive.org.
+
 All of them are MIT licensed. Issues and questions are handled on GitHub, on each
 app's own repository.
   </Profile>
