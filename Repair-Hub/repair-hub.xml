@@ -54,8 +54,13 @@ raw file copy while the container is running.
   <Category>Productivity: Tools:Utilities</Category>
   <ExtraSearchTerms>car auto vehicle repair shop management work order estimate invoice inventory mechanic garage automotive diagnostic OBD DTC</ExtraSearchTerms>
   <Requires>Internet access is optional -- only needed for the VIN decode, recalls, specs, and free-guide-search features. Everything else works fully offline.</Requires>
-  <Date>2026-09-03</Date>
+  <Date>2026-09-07</Date>
   <Changes>
+### 1.1.1
+Fixed a bug where fresh installs reached by LAN IP (the normal way to reach
+an Unraid app) got a "Bad Request (400)" page instead of the login screen.
+`DJANGO_ALLOWED_HOSTS` now defaults to `*` instead of `localhost,127.0.0.1`.
+
 ### 1.1.0
 Sales tax (shop-wide rate, per-customer exempt), invoice creation with
 partial-payment tracking, an accounting CSV export, warranty tracking on
@@ -85,6 +90,6 @@ inventory, inspections, PDF invoices) with three account tiers.
   <Config Name="Superuser Password" Target="DJANGO_SUPERUSER_PASSWORD" Default="" Mode="" Description="Required for the first login to be created. Change it in Admin after logging in." Type="Variable" Display="always" Required="true" Mask="true"></Config>
   <Config Name="Superuser Email" Target="DJANGO_SUPERUSER_EMAIL" Default="admin@example.com" Mode="" Description="Optional, only used to pre-fill this account's email" Type="Variable" Display="advanced" Required="false" Mask="false">admin@example.com</Config>
 
-  <Config Name="Allowed Hosts" Target="DJANGO_ALLOWED_HOSTS" Default="localhost,127.0.0.1" Mode="" Description="Comma-separated hostnames/IPs the app will answer to. Add your Unraid LAN IP or reverse-proxy domain if you can't log in." Type="Variable" Display="advanced" Required="false" Mask="false">localhost,127.0.0.1</Config>
+  <Config Name="Allowed Hosts" Target="DJANGO_ALLOWED_HOSTS" Default="*" Mode="" Description="Comma-separated hostnames/IPs the app will answer to, or * for any (default -- fine for a LAN-only appliance). Only lock this down to specific hosts if you're exposing this through a reverse proxy on the open internet." Type="Variable" Display="advanced" Required="false" Mask="false">*</Config>
   <Config Name="Debug Mode" Target="DJANGO_DEBUG" Default="false" Mode="" Description="Leave false unless troubleshooting -- true shows full Python tracebacks on error pages, which can leak internal details" Type="Variable" Display="advanced" Required="false" Mask="false">false</Config>
 </Container>
