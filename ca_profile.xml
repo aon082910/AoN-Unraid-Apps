@@ -64,6 +64,16 @@ as an alternative to pre-recorded clips), series-order playback, DVR-style recor
 an in-browser Watch player with Chromecast/AirPlay casting, PIN-protected viewer
 profiles, and a public-domain commercials importer from archive.org.
 
+**Card-Hub** - a self-hosted trading card / sports card collection manager modeled
+after Ludex. Collection tracking for sports cards and TCG (Pokemon, Yu-Gi-Oh, Magic:
+The Gathering, and more), camera/barcode scanning with on-device OCR text extraction,
+live card lookup and pricing (TCGdex, YGOPRODeck, Scryfall - all free and keyless), a
+grading submission tracker with a profit-potential ROI calculator, consignment
+tracking, want lists with shareable public links, decks/binders, a trade ledger,
+sales and profit reporting, Excel/CSV/PDF export (including a photo catalog and
+printable QR label sheets) and CSV/Excel import with your own column mapping,
+multi-user login with an admin API Keys panel, and a multi-language UI.
+
 All of them are MIT licensed. Issues and questions are handled on GitHub, on each
 app's own repository.
   </Profile>
