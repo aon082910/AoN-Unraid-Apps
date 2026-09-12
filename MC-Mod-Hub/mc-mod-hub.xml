@@ -20,7 +20,8 @@ Self-hosted Minecraft mod/addon search hub. Aggregates search results from Modri
 PlanetMinecraft, 9Minecraft, BetterBedrock, Hangar (PaperMC's official plugin repo), SpigotMC,
 TLMods (TLauncher's mod/modpack/resourcepack/map/shaderpack mirror), MinecraftSkins.net,
 Polymart (Spigot/Paper plugin marketplace), GitHub (repos tagged "minecraft", for mods and
-plugins with no listing anywhere else), and MCreator.net into one searchable list, styled after
+plugins with no listing anywhere else), MCreator.net, and McpeDude (Bedrock mods/addons/texture
+packs/maps) into one searchable list, styled after
 a familiar category-browser layout (category pills, an expandable "newest posts" notice board,
 a results table sortable and filterable by every column - name, source, edition, version,
 downloads, posted date, and last-updated date).
@@ -65,6 +66,7 @@ installed and re-checking that source directly.
   <!-- 2026-09-06: added MCreator.net as a search source -->
   <!-- 2026-09-06: update tracking for Hangar/SpigotMC/GitHub installs; expandable notice board -->
   <!-- 2026-09-06: sortable/filterable results table with Posted and Updated date columns -->
+  <!-- 2026-09-12: added McpeDude (Bedrock mods/addons/texture-packs/maps) as a search source -->
   <License>MIT</License>
   <MinVer>6.9</MinVer>
 
