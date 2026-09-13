@@ -14,7 +14,7 @@
   <Icon>https://raw.githubusercontent.com/aon082910/AoN-Unraid-Apps/main/Model-Hub/icon.png</Icon>
   <WebUI>http://[IP]:[PORT:8420]/</WebUI>
   <Overview>
-Self-hosted, open clone of Meshory's 3D print file library: STL/3MF/OBJ/STEP/FBX
+Self-hosted, open 3D print file library manager: STL/3MF/OBJ/STEP/FBX
 organization, thumbnails, duplicate detection, tagging, semantic search, smart
 collections, filament inventory and a print queue. AI tagging/search can run
 against a local Ollama instance (nothing leaves your network) or an external
@@ -28,7 +28,7 @@ weight estimates, a browser extension for one-click import from Printables/
 MakerWorld, and optional webhook notifications (ntfy/Discord/Slack).
   </Overview>
   <Category>Tools:Utilities Productivity:</Category>
-  <ExtraSearchTerms>3d printing stl 3mf obj step fbx model library slicer filament print queue meshory</ExtraSearchTerms>
+  <ExtraSearchTerms>3d printing stl 3mf obj step fbx model library slicer filament print queue</ExtraSearchTerms>
   <Requires>Optional: an Ollama container (install the official "ollama" template from
 Community Applications first) if you want local AI instead of an API key.</Requires>
   <Changes>
