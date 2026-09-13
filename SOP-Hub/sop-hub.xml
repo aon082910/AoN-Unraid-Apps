@@ -17,8 +17,8 @@
   <License>MIT</License>
 
   <Overview>
-Self-hosted clone of Scribe: turn a workflow into a step-by-step visual guide,
-with AI help from either a local model or a cloud provider.
+Self-hosted step-by-step visual guide builder, with AI help from either a
+local model or a cloud provider.
 
 Capture a process two ways -- upload screenshots manually in the editor, or
 install the included Chrome extension and just click through the workflow;
@@ -44,7 +44,7 @@ you've backed up the whole app.
   </Overview>
 
   <Category>Productivity: Tools:Utilities</Category>
-  <ExtraSearchTerms>scribe documentation how-to guide sop standard operating procedure process screenshot tutorial knowledge base wiki ai</ExtraSearchTerms>
+  <ExtraSearchTerms>documentation how-to guide sop standard operating procedure process screenshot tutorial knowledge base wiki ai</ExtraSearchTerms>
   <Requires>Internet access is optional -- only needed if you point it at a cloud AI provider. Everything else, including local AI via your own Ollama instance, works fully offline/on-LAN.</Requires>
   <Date>2026-09-03</Date>
   <Changes>
@@ -55,7 +55,7 @@ and PDF/HTML/Markdown export.
   </Changes>
   <MinVer>6.1</MinVer>
   <Description>
-Self-hosted Scribe clone: capture a workflow (manually or via the included
+Self-hosted guide builder: capture a workflow (manually or via the included
 browser extension) into a step-by-step guide, with AI help from a local
 model or a cloud provider, publish-to-share-link, and PDF/HTML/Markdown
 export.
