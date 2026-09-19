@@ -32,6 +32,18 @@ MakerWorld, and optional webhook notifications (ntfy/Discord/Slack).
   <Requires>Optional: an Ollama container (install the official "ollama" template from
 Community Applications first) if you want local AI instead of an API key.</Requires>
   <Changes>
+### 1.4.0
+Fixes the actual root cause of Tag All crashing the container: an
+oversized AI response (e.g. a local vision model stuck generating past
+a sane length) could get fully buffered into memory in a single network
+call fast enough to OOM the container in seconds -- too fast for the
+1.3.0 fix's periodic checkpointing to help. AI responses are now
+streamed with a hard size cap so that can't happen, generation length is
+capped as a second line of defense, and the tagging job now checks the
+container's actual memory usage before every model and stops itself
+cleanly (instead of the kernel silently killing the container) if it's
+running critically high.
+
 ### 1.3.0
 Tag All no longer risks crashing/hanging on large untagged libraries: the
 batch job now periodically releases database state instead of holding
@@ -64,7 +76,7 @@ volumetric/slicer-based estimates, session auth, webhook notifications, a
 Printables/MakerWorld browser extension, and PUID/PGID support so files under
 /config are owned by a real host user instead of root.
   </Changes>
-  <Date>2026-09-13</Date>
+  <Date>2026-09-19</Date>
   <License>MIT</License>
   <MinVer>6.9</MinVer>
 
