@@ -32,6 +32,18 @@ MakerWorld, and optional webhook notifications (ntfy/Discord/Slack).
   <Requires>Optional: an Ollama container (install the official "ollama" template from
 Community Applications first) if you want local AI instead of an API key.</Requires>
   <Changes>
+### 1.6.0
+Fixes the app still crashing when a scan runs. Loading a model file takes
+many times its size in memory (a 35MB Bambu Studio project needed 4GB, a
+262MB STL 3GB), and that happened inside the app itself -- one large file
+anywhere in the library could get the whole container killed on every
+scan. Model files are now parsed in a separate, memory-limited worker
+process: if a file is too big it's indexed from a preview instead (the
+.3mf's embedded thumbnail, or a streamed render of the STL), and if the
+worker dies anyway only that file is affected. New optional setting: Mesh
+Worker Memory (MB), blank for automatic. Thumbnail regeneration gets the
+same protection, and the 3D viewer now asks before loading huge models.
+
 ### 1.5.0
 Fixes an OOM crash loop and a 3D viewer error on multi-part .3mf project
 files (Bambu Studio / OrcaSlicer, which split each plate/object into its
@@ -123,6 +135,10 @@ Printables/MakerWorld browser extension, and PUID/PGID support so files under
   <Config Name="Scan Interval" Target="SCAN_INTERVAL_SECONDS" Default="300" Mode=""
           Description="Seconds between automatic background library scans."
           Type="Variable" Display="advanced" Required="false" Mask="false">300</Config>
+
+  <Config Name="Mesh Worker Memory (MB)" Target="MESH_WORKER_MEMORY_MB" Default="" Mode=""
+          Description="Memory ceiling for the separate process that parses model files during scans. Leave blank for automatic (half of the container limit or host RAM, 1-8 GB). Files needing more are still indexed, from a preview (a .3mf's embedded thumbnail, or a streamed render of an STL) instead of a full parse. Raise it only if you have RAM to spare and want full stats on very large files."
+          Type="Variable" Display="advanced" Required="false" Mask="false"/>
 
   <Config Name="Ollama Host" Target="OLLAMA_HOST" Default="http://ollama:11434" Mode=""
           Description="Address of your Ollama container/instance for local AI tagging. Only used when AI mode is set to 'local' in the app's Settings tab."
