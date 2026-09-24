@@ -32,6 +32,19 @@ MakerWorld, and optional webhook notifications (ntfy/Discord/Slack).
   <Requires>Optional: an Ollama container (install the official "ollama" template from
 Community Applications first) if you want local AI instead of an API key.</Requires>
   <Changes>
+### 1.5.0
+Fixes an OOM crash loop and a 3D viewer error on multi-part .3mf project
+files (Bambu Studio / OrcaSlicer, which split each plate/object into its
+own file inside the .3mf). Scanning one of these could consume 15GB+ of
+RAM computing mesh watertightness and OOM-kill the container on every
+launch -- since the background scan runs on startup, this could look
+like the app crashing right after launching, and any files past that one
+in scan order (including in subfolders -- scanning was already recursive,
+it just never got that far) would never get indexed. Also extracts the
+slicer's own embedded preview from .3mf files when present instead of
+rendering our own, and fixes the live 3D viewer failing to open these
+same multi-part files.
+
 ### 1.4.0
 Fixes the actual root cause of Tag All crashing the container: an
 oversized AI response (e.g. a local vision model stuck generating past
@@ -76,7 +89,7 @@ volumetric/slicer-based estimates, session auth, webhook notifications, a
 Printables/MakerWorld browser extension, and PUID/PGID support so files under
 /config are owned by a real host user instead of root.
   </Changes>
-  <Date>2026-09-19</Date>
+  <Date>2026-09-24</Date>
   <License>MIT</License>
   <MinVer>6.9</MinVer>
 
