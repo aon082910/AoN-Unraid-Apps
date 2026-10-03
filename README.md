@@ -14,6 +14,7 @@ Unraid Community Applications templates for my self-hosted apps. One folder per 
 | **SOP-Hub** | [`SOP-Hub/`](SOP-Hub/sop-hub.xml) | [aon082910/sop-hub](https://github.com/aon082910/sop-hub) | [`allornothing/sop-hub`](https://hub.docker.com/r/allornothing/sop-hub) |
 | **Channel Hub** | [`Channel-Hub/`](Channel-Hub/channel-hub.xml) | [aon082910/channel-hub](https://github.com/aon082910/channel-hub) | [`allornothing/channel-hub`](https://hub.docker.com/r/allornothing/channel-hub) |
 | **Card-Hub** | [`Card-Hub/`](Card-Hub/card-hub.xml) | [aon082910/card-hub](https://github.com/aon082910/card-hub) | [`allornothing/card-hub`](https://hub.docker.com/r/allornothing/card-hub) |
+| **Ghost-Hub** | [`Ghost-Hub/`](Ghost-Hub/ghost-hub.xml) | [aon082910/ghost-hub](https://github.com/aon082910/ghost-hub) | [`allornothing/ghost-hub`](https://hub.docker.com/r/allornothing/ghost-hub) |
 
 ## Installing
 
@@ -64,6 +65,9 @@ Channel-Hub/
   icon.png              app icon
 Card-Hub/
   card-hub.xml          container template
+  icon.png              app icon
+Ghost-Hub/
+  ghost-hub.xml         container template
   icon.png              app icon
 ```
 

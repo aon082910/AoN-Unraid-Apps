@@ -1,0 +1,63 @@
+<?xml version="1.0"?>
+<Container version="2">
+  <Name>Ghost-Hub</Name>
+  <Repository>allornothing/ghost-hub:latest</Repository>
+  <Registry>https://hub.docker.com/r/allornothing/ghost-hub</Registry>
+  <Network>bridge</Network>
+  <MyIP/>
+  <Shell>sh</Shell>
+  <Privileged>false</Privileged>
+  <Support>https://github.com/aon082910/ghost-hub/issues</Support>
+  <Project>https://github.com/aon082910/ghost-hub</Project>
+  <TemplateURL>https://raw.githubusercontent.com/aon082910/AoN-Unraid-Apps/main/Ghost-Hub/ghost-hub.xml</TemplateURL>
+  <ReadMe>https://raw.githubusercontent.com/aon082910/ghost-hub/main/README.md</ReadMe>
+  <Icon>https://raw.githubusercontent.com/aon082910/AoN-Unraid-Apps/main/Ghost-Hub/icon.png</Icon>
+  <WebUI>http://[IP]:[PORT:3000]/</WebUI>
+  <Overview>
+Self-hosted digital-footprint cleaner, inspired by GhostSweep. Connect your Gmail
+inbox with your own Google OAuth client, discover every service you have ever
+signed up for, check them against known breaches, find shadow profiles under your
+email, phone or username, and bulk-unsubscribe from newsletters. Everything is
+review-first -- nothing happens without your approval. Raw email is processed in
+memory and never stored, and your data never leaves your server. Requires a
+PostgreSQL container (set its address in DATABASE_URL) and a Google OAuth client
+(see the project README).
+
+Early development: the app is a work in progress.
+  </Overview>
+  <Category>Tools: Security:</Category>
+  <ExtraSearchTerms>privacy digital footprint ghostsweep gmail accounts breach haveibeenpwned unsubscribe newsletters shadow profiles account discovery</ExtraSearchTerms>
+  <Requires>Requires a PostgreSQL container (e.g. postgres:17). Set DATABASE_URL to point at it.</Requires>
+  <Changes>
+### 0.1.0
+Initial scaffold. Project structure, Docker image and configuration only -- inbox
+scanning, dashboard, breach checks, newsletter unsubscribe and the shadow-profile
+scanner are still in development.
+  </Changes>
+  <Date>2026-10-03</Date>
+  <License>MIT</License>
+  <MinVer>6.9</MinVer>
+
+  <ExtraParams/>
+  <PostArgs/>
+  <CPUset/>
+  <DateInstalled/>
+  <DonateText/>
+  <DonateLink/>
+
+  <Config Name="WebUI Port" Target="3000" Default="3000" Mode="tcp" Description="Web interface port" Type="Port" Display="always" Required="true" Mask="false">3000</Config>
+
+  <Config Name="App URL" Target="APP_URL" Default="http://[IP]:3000" Mode="" Description="URL you reach Ghost-Hub at. Used to build the Google OAuth redirect URI (APP_URL/api/auth/google/callback)." Type="Variable" Display="always" Required="true" Mask="false">http://[IP]:3000</Config>
+
+  <Config Name="Admin Password" Target="ADMIN_PASSWORD" Default="" Mode="" Description="Password for the web UI login." Type="Variable" Display="always" Required="true" Mask="true"></Config>
+
+  <Config Name="Encryption Key" Target="ENCRYPTION_KEY" Default="" Mode="" Description="32-byte base64 key that encrypts your OAuth tokens at rest. Generate with: openssl rand -base64 32. Losing it means reconnecting your inbox." Type="Variable" Display="always" Required="true" Mask="true"></Config>
+
+  <Config Name="Database URL" Target="DATABASE_URL" Default="postgres://ghosthub:password@[IP]:5432/ghosthub" Mode="" Description="PostgreSQL connection string for your Postgres container." Type="Variable" Display="always" Required="true" Mask="true">postgres://ghosthub:password@[IP]:5432/ghosthub</Config>
+
+  <Config Name="Google Client ID" Target="GOOGLE_CLIENT_ID" Default="" Mode="" Description="From your own Google Cloud OAuth client (see docs/SETUP-GOOGLE-OAUTH.md in the project)." Type="Variable" Display="always" Required="true" Mask="false"></Config>
+
+  <Config Name="Google Client Secret" Target="GOOGLE_CLIENT_SECRET" Default="" Mode="" Description="Secret for your Google OAuth client." Type="Variable" Display="always" Required="true" Mask="true"></Config>
+
+  <Config Name="HIBP API Key" Target="HIBP_API_KEY" Default="" Mode="" Description="Optional. Have I Been Pwned API key for per-email breach lookups. Without it, services are matched against HIBP's free public breach list." Type="Variable" Display="advanced" Required="false" Mask="true"></Config>
+</Container>
