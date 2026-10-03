@@ -14,7 +14,7 @@
   <Icon>https://raw.githubusercontent.com/aon082910/AoN-Unraid-Apps/main/Ghost-Hub/icon.png</Icon>
   <WebUI>http://[IP]:[PORT:3000]/</WebUI>
   <Overview>
-Self-hosted digital-footprint cleaner, inspired by GhostSweep. Connect your Gmail
+Self-hosted digital-footprint cleaner. Connect your Gmail
 inbox with your own Google OAuth client, discover every service you have ever
 signed up for, check them against known breaches, find shadow profiles under your
 email, phone or username, and bulk-unsubscribe from newsletters. Everything is
@@ -26,7 +26,7 @@ PostgreSQL container (set its address in DATABASE_URL) and a Google OAuth client
 Early development: the app is a work in progress.
   </Overview>
   <Category>Tools: Security:</Category>
-  <ExtraSearchTerms>privacy digital footprint ghostsweep gmail accounts breach haveibeenpwned unsubscribe newsletters shadow profiles account discovery</ExtraSearchTerms>
+  <ExtraSearchTerms>privacy digital footprint gmail accounts breach haveibeenpwned unsubscribe newsletters shadow profiles account discovery</ExtraSearchTerms>
   <Requires>Requires a PostgreSQL container (e.g. postgres:17). Set DATABASE_URL to point at it.</Requires>
   <Changes>
 ### 0.1.0
