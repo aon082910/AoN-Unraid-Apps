@@ -14,25 +14,27 @@
   <Icon>https://raw.githubusercontent.com/aon082910/AoN-Unraid-Apps/main/Ghost-Hub/icon.png</Icon>
   <WebUI>http://[IP]:[PORT:3000]/</WebUI>
   <Overview>
-Self-hosted digital-footprint cleaner. Connect your Gmail
-inbox with your own Google OAuth client, discover every service you have ever
-signed up for, check them against known breaches, find shadow profiles under your
+Self-hosted digital-footprint cleaner. Connect Gmail, Outlook /
+Microsoft 365 (through your own OAuth apps) and Yahoo, AOL, iCloud or any IMAP
+mailbox (app password), discover every service you have ever signed up for, check them against known breaches, find shadow profiles under your
 email, phone or username, and bulk-unsubscribe from newsletters. Everything is
 review-first -- nothing happens without your approval. Raw email is processed in
 memory and never stored, and your data never leaves your server. Requires a
-PostgreSQL container (set its address in DATABASE_URL) and a Google OAuth client
-(see the project README).
+PostgreSQL container (set its address in DATABASE_URL). Each mail provider is
+optional: Gmail and Outlook need an OAuth app you create once (see the project
+docs), Yahoo/IMAP needs only an app password. Google and Microsoft require an
+HTTPS address (or localhost) for sign-in, so put Ghost-Hub behind a reverse proxy.
 
 Early development: the app is a work in progress.
   </Overview>
   <Category>Tools: Security:</Category>
-  <ExtraSearchTerms>privacy digital footprint gmail accounts breach haveibeenpwned unsubscribe newsletters shadow profiles account discovery</ExtraSearchTerms>
+  <ExtraSearchTerms>privacy digital footprint gmail outlook yahoo imap accounts breach haveibeenpwned unsubscribe newsletters shadow profiles account discovery</ExtraSearchTerms>
   <Requires>Requires a PostgreSQL container (e.g. postgres:17). Set DATABASE_URL to point at it.</Requires>
   <Changes>
 ### 0.1.0
-Initial scaffold. Project structure, Docker image and configuration only -- inbox
-scanning, dashboard, breach checks, newsletter unsubscribe and the shadow-profile
-scanner are still in development.
+Initial scaffold. Admin login, database, and connecting Gmail, Outlook /
+Microsoft 365 and Yahoo / IMAP mailboxes. Inbox scanning, dashboard, breach checks,
+newsletter unsubscribe and the shadow-profile scanner are still in development.
   </Changes>
   <Date>2026-10-03</Date>
   <License>MIT</License>
@@ -55,9 +57,15 @@ scanner are still in development.
 
   <Config Name="Database URL" Target="DATABASE_URL" Default="postgres://ghosthub:password@[IP]:5432/ghosthub" Mode="" Description="PostgreSQL connection string for your Postgres container." Type="Variable" Display="always" Required="true" Mask="true">postgres://ghosthub:password@[IP]:5432/ghosthub</Config>
 
-  <Config Name="Google Client ID" Target="GOOGLE_CLIENT_ID" Default="" Mode="" Description="From your own Google Cloud OAuth client (see docs/SETUP-GOOGLE-OAUTH.md in the project)." Type="Variable" Display="always" Required="true" Mask="false"></Config>
+  <Config Name="Google Client ID" Target="GOOGLE_CLIENT_ID" Default="" Mode="" Description="Optional, for Gmail. From your own Google Cloud OAuth client (see docs/SETUP-GOOGLE-OAUTH.md in the project)." Type="Variable" Display="always" Required="false" Mask="false"></Config>
 
-  <Config Name="Google Client Secret" Target="GOOGLE_CLIENT_SECRET" Default="" Mode="" Description="Secret for your Google OAuth client." Type="Variable" Display="always" Required="true" Mask="true"></Config>
+  <Config Name="Google Client Secret" Target="GOOGLE_CLIENT_SECRET" Default="" Mode="" Description="Optional, for Gmail. Secret for your Google OAuth client." Type="Variable" Display="always" Required="false" Mask="true"></Config>
+
+  <Config Name="Microsoft Client ID" Target="MICROSOFT_CLIENT_ID" Default="" Mode="" Description="Optional, for Outlook / Microsoft 365. Application (client) ID of your own Entra app registration (see docs/SETUP-MICROSOFT-OAUTH.md in the project)." Type="Variable" Display="always" Required="false" Mask="false"></Config>
+
+  <Config Name="Microsoft Client Secret" Target="MICROSOFT_CLIENT_SECRET" Default="" Mode="" Description="Optional, for Outlook / Microsoft 365. Client secret value of your Entra app registration." Type="Variable" Display="always" Required="false" Mask="true"></Config>
+
+  <Config Name="Microsoft Tenant" Target="MICROSOFT_TENANT" Default="common" Mode="" Description="common = personal and work/school accounts. Use consumers for personal accounts only, or a tenant ID." Type="Variable" Display="advanced" Required="false" Mask="false">common</Config>
 
   <Config Name="HIBP API Key" Target="HIBP_API_KEY" Default="" Mode="" Description="Optional. Have I Been Pwned API key for per-email breach lookups. Without it, services are matched against HIBP's free public breach list." Type="Variable" Display="advanced" Required="false" Mask="true"></Config>
 </Container>
