@@ -32,9 +32,10 @@ Early development: the app is a work in progress.
   <Requires>Requires a PostgreSQL container (e.g. postgres:17). Set DATABASE_URL to point at it.</Requires>
   <Changes>
 ### 0.1.0
-Initial scaffold. Admin login, database, and connecting Gmail, Outlook /
-Microsoft 365 and Yahoo / IMAP mailboxes. Inbox scanning, dashboard, breach checks,
-newsletter unsubscribe and the shadow-profile scanner are still in development.
+Initial release. Admin login, database, connecting Gmail, Outlook / Microsoft 365
+and Yahoo / IMAP mailboxes, inbox scanning (headers only), and a dashboard that
+scores each service you use for risk using Have I Been Pwned's public breach list.
+Newsletter unsubscribe and the shadow-profile scanner are still in development.
   </Changes>
   <Date>2026-10-03</Date>
   <License>MIT</License>
@@ -67,5 +68,7 @@ newsletter unsubscribe and the shadow-profile scanner are still in development.
 
   <Config Name="Microsoft Tenant" Target="MICROSOFT_TENANT" Default="common" Mode="" Description="common = personal and work/school accounts. Use consumers for personal accounts only, or a tenant ID." Type="Variable" Display="advanced" Required="false" Mask="false">common</Config>
 
-  <Config Name="HIBP API Key" Target="HIBP_API_KEY" Default="" Mode="" Description="Optional. Have I Been Pwned API key for per-email breach lookups. Without it, services are matched against HIBP's free public breach list." Type="Variable" Display="advanced" Required="false" Mask="true"></Config>
+  <Config Name="Breach Lookups" Target="HIBP_ENABLED" Default="true" Mode="" Description="true downloads Have I Been Pwned's public breach list to score your services (nothing about you is sent). Set to false to make no Have I Been Pwned calls at all." Type="Variable" Display="advanced" Required="false" Mask="false">true</Config>
+
+  <Config Name="HIBP API Key" Target="HIBP_API_KEY" Default="" Mode="" Description="Optional. Your own Have I Been Pwned API key. Lets you press Check on the dashboard to see whether your email addresses appear in breaches (that sends the address to Have I Been Pwned). Without it, services are matched against the free public breach list by domain." Type="Variable" Display="advanced" Required="false" Mask="true"></Config>
 </Container>
