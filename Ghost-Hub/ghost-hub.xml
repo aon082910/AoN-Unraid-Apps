@@ -37,9 +37,9 @@ and Yahoo / IMAP mailboxes, inbox scanning (headers only), and a dashboard that
 scores each service you use for risk using Have I Been Pwned's public breach list,
 lets you unsubscribe from newsletters after reviewing exactly what is sent, and
 shows what public profiles exist under your own usernames.
-Review-first newsletter unsubscribe (one-click senders only) and a profile finder
-(public pages for your own usernames, and Gravatar for your connected addresses) are
-included.
+Review-first newsletter unsubscribe (one-click senders only) a profile finder
+(public pages for your own usernames, and Gravatar for your connected addresses), and
+step-by-step guides for deleting accounts are included.
   </Changes>
   <Date>2026-10-03</Date>
   <License>MIT</License>
