@@ -10,39 +10,43 @@
   <Support>https://github.com/aon082910/ghost-hub/issues</Support>
   <Project>https://github.com/aon082910/ghost-hub</Project>
   <TemplateURL>https://raw.githubusercontent.com/aon082910/AoN-Unraid-Apps/main/Ghost-Hub/ghost-hub.xml</TemplateURL>
-  <ReadMe>https://raw.githubusercontent.com/aon082910/ghost-hub/main/README.md</ReadMe>
+  <ReadMe>https://raw.githubusercontent.com/aon082910/ghost-hub/main/docs/UNRAID.md</ReadMe>
   <Icon>https://raw.githubusercontent.com/aon082910/AoN-Unraid-Apps/main/Ghost-Hub/icon.png</Icon>
   <WebUI>http://[IP]:[PORT:3000]/</WebUI>
   <Overview>
-Self-hosted digital-footprint cleaner. Connect Gmail, Outlook /
-Microsoft 365 (through your own OAuth apps) and Yahoo, AOL, iCloud or any IMAP
-mailbox (app password), discover every service you have ever signed up for, check them against known breaches, find shadow profiles under your
-email, phone or username, and bulk-unsubscribe from newsletters. Everything is
-review-first -- nothing happens without your approval. Raw email is processed in
-memory and never stored, and your data never leaves your server. Requires a
-PostgreSQL container (set its address in DATABASE_URL). Each mail provider is
-optional: Gmail and Outlook need an OAuth app you create once (see the project
-docs), Yahoo/IMAP needs only an app password. Google and Microsoft require an
-HTTPS address (or localhost) for sign-in, so put Ghost-Hub behind a reverse proxy.
+Self-hosted digital-footprint cleaner. Connect Gmail, Outlook / Microsoft 365
+(through OAuth apps you create) and Yahoo, AOL, iCloud or any IMAP mailbox (app
+password). Ghost-Hub reads message headers only, never bodies, to find the
+services you have signed up for, scores each one for risk using Have I Been
+Pwned's public breach list, shows how to delete the accounts you do not need,
+helps you unsubscribe from newsletters after you review exactly what will be
+sent, and finds public profiles under your own usernames. Nothing happens
+without your approval, and your data stays on your server.
 
-Early development: the app is a work in progress.
+Requires a PostgreSQL container (set its address in Database URL). Every mail
+provider is optional: Gmail and Outlook need an OAuth app you create once (see
+the project docs), Yahoo and IMAP need only an app password. Google and
+Microsoft only allow sign-in over HTTPS (or localhost), so put Ghost-Hub behind
+a reverse proxy and set App URL to its https address. Full guide: docs/UNRAID.md.
+
+Pre-release: tested against fake mail servers, not yet against many real accounts.
   </Overview>
   <Category>Tools: Security:</Category>
-  <ExtraSearchTerms>privacy digital footprint gmail outlook yahoo imap accounts breach haveibeenpwned unsubscribe newsletters shadow profiles account discovery</ExtraSearchTerms>
-  <Requires>Requires a PostgreSQL container (e.g. postgres:17). Set DATABASE_URL to point at it.</Requires>
+  <ExtraSearchTerms>privacy digital footprint gmail outlook yahoo imap accounts breach haveibeenpwned unsubscribe newsletters delete account cleanup</ExtraSearchTerms>
+  <Requires>Requires a PostgreSQL container (any current version). Set Database URL to point at it.</Requires>
   <Changes>
 ### 0.1.0
-Initial release. Admin login, database, connecting Gmail, Outlook / Microsoft 365
-and Yahoo / IMAP mailboxes, inbox scanning (headers only), and a dashboard that
-scores each service you use for risk using Have I Been Pwned's public breach list,
-lets you unsubscribe from newsletters after reviewing exactly what is sent, and
-shows what public profiles exist under your own usernames.
-Review-first newsletter unsubscribe (one-click senders only) a profile finder
-(public pages for your own usernames, and Gravatar for your connected addresses), and
-step-by-step guides for deleting accounts are included.
+First pre-release.
+- Connect Gmail, Outlook / Microsoft 365 and Yahoo / AOL / iCloud / IMAP mailboxes (read-only).
+- Header-only inbox scan that finds the services you have signed up for.
+- Dashboard with a 0-100 risk score per service and breach matching (Have I Been Pwned).
+- Review-first bulk newsletter unsubscribe (one-click senders).
+- Step-by-step account deletion guides, and a flag if a company keeps emailing after you delete.
+- Public profile finder for your own usernames and Gravatar-linked accounts.
   </Changes>
-  <Date>2026-10-03</Date>
+  <Date>2026-10-04</Date>
   <License>MIT</License>
+  <Beta>true</Beta>
   <MinVer>6.9</MinVer>
 
   <ExtraParams/>
@@ -54,13 +58,13 @@ step-by-step guides for deleting accounts are included.
 
   <Config Name="WebUI Port" Target="3000" Default="3000" Mode="tcp" Description="Web interface port" Type="Port" Display="always" Required="true" Mask="false">3000</Config>
 
-  <Config Name="App URL" Target="APP_URL" Default="http://[IP]:3000" Mode="" Description="URL you reach Ghost-Hub at. Used to build the Google OAuth redirect URI (APP_URL/api/auth/google/callback)." Type="Variable" Display="always" Required="true" Mask="false">http://[IP]:3000</Config>
+  <Config Name="App URL" Target="APP_URL" Default="http://[IP]:3000" Mode="" Description="The address you open Ghost-Hub at, for example https://hub.example.com. Used for the Gmail and Outlook sign-in redirect and the session cookie. Gmail and Outlook only work with an https address (or localhost): see docs/UNRAID.md." Type="Variable" Display="always" Required="true" Mask="false">http://[IP]:3000</Config>
 
-  <Config Name="Admin Password" Target="ADMIN_PASSWORD" Default="" Mode="" Description="Password for the web UI login." Type="Variable" Display="always" Required="true" Mask="true"></Config>
+  <Config Name="Admin Password" Target="ADMIN_PASSWORD" Default="" Mode="" Description="Password for the web login. Use 12 or more characters; common placeholder values are refused." Type="Variable" Display="always" Required="true" Mask="true"></Config>
 
-  <Config Name="Encryption Key" Target="ENCRYPTION_KEY" Default="" Mode="" Description="32-byte base64 key that encrypts your OAuth tokens at rest. Generate with: openssl rand -base64 32. Losing it means reconnecting your inbox." Type="Variable" Display="always" Required="true" Mask="true"></Config>
+  <Config Name="Encryption Key" Target="ENCRYPTION_KEY" Default="" Mode="" Description="32-byte base64 key that encrypts the logins Ghost-Hub stores. Generate one with: openssl rand -base64 32. Back it up: if you lose it you must reconnect every mailbox." Type="Variable" Display="always" Required="true" Mask="true"></Config>
 
-  <Config Name="Database URL" Target="DATABASE_URL" Default="postgres://ghosthub:password@[IP]:5432/ghosthub" Mode="" Description="PostgreSQL connection string for your Postgres container." Type="Variable" Display="always" Required="true" Mask="true">postgres://ghosthub:password@[IP]:5432/ghosthub</Config>
+  <Config Name="Database URL" Target="DATABASE_URL" Default="postgres://ghosthub:password@[IP]:5432/ghosthub" Mode="" Description="PostgreSQL connection string for your Postgres container, for example postgres://ghosthub:YOUR_PASSWORD@UNRAID_IP:5432/ghosthub." Type="Variable" Display="always" Required="true" Mask="true">postgres://ghosthub:password@[IP]:5432/ghosthub</Config>
 
   <Config Name="Google Client ID" Target="GOOGLE_CLIENT_ID" Default="" Mode="" Description="Optional, for Gmail. From your own Google Cloud OAuth client (see docs/SETUP-GOOGLE-OAUTH.md in the project)." Type="Variable" Display="always" Required="false" Mask="false"></Config>
 
