@@ -35,9 +35,11 @@ Early development: the app is a work in progress.
 Initial release. Admin login, database, connecting Gmail, Outlook / Microsoft 365
 and Yahoo / IMAP mailboxes, inbox scanning (headers only), and a dashboard that
 scores each service you use for risk using Have I Been Pwned's public breach list,
-and lets you unsubscribe from newsletters after reviewing exactly what is sent.
-Review-first newsletter unsubscribe (one-click senders only) is included; the
-shadow-profile scanner is still in development.
+lets you unsubscribe from newsletters after reviewing exactly what is sent, and
+shows what public profiles exist under your own usernames.
+Review-first newsletter unsubscribe (one-click senders only) and a profile finder
+(public pages for your own usernames, and Gravatar for your connected addresses) are
+included.
   </Changes>
   <Date>2026-10-03</Date>
   <License>MIT</License>
