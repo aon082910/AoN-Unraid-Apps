@@ -24,14 +24,28 @@ files already live; nothing is modified on disk, files are only read and hashed.
 
 On first open you'll be asked to create an admin login (or set Admin
 Username/Password below to skip that screen). Also includes print time/filament
-weight estimates, a browser extension for one-click import from Printables/
-MakerWorld, and optional webhook notifications (ntfy/Discord/Slack).
+weight estimates, projects that track the electronics/parts/supplies each
+build needs (with a shopping list) and subtract the filament used when a
+project is marked printed, a browser extension for one-click import from
+Printables/MakerWorld, and optional webhook notifications (ntfy/Discord/Slack).
   </Overview>
   <Category>Tools:Utilities Productivity:</Category>
-  <ExtraSearchTerms>3d printing stl 3mf obj step fbx model library slicer filament print queue</ExtraSearchTerms>
+  <ExtraSearchTerms>3d printing stl 3mf obj step fbx model library slicer filament print queue project parts bom shopping list</ExtraSearchTerms>
   <Requires>Optional: an Ollama container (install the official "ollama" template from
 Community Applications first) if you want local AI instead of an API key.</Requires>
   <Changes>
+### 1.7.0
+New Projects tab. A project groups library models and keeps a parts list
+(electronics, parts, supplies) with how many are needed vs. owned, unit cost
+and a buy link. Filter to the projects that still need parts, or open the
+Shopping List for everything missing across unfinished projects with an
+estimated total. Add a model to a project from its viewer, then give it one
+or more filament spools with grams each (the Estimate button fills grams from
+the print estimate). When a project is set to printed (or done) that filament
+is subtracted from inventory exactly once; moving it back to planning or
+building restores it. No new settings; new tables are created automatically
+on first start.
+
 ### 1.6.0
 Fixes the app still crashing when a scan runs. Loading a model file takes
 many times its size in memory (a 35MB Bambu Studio project needed 4GB, a
@@ -101,7 +115,7 @@ volumetric/slicer-based estimates, session auth, webhook notifications, a
 Printables/MakerWorld browser extension, and PUID/PGID support so files under
 /config are owned by a real host user instead of root.
   </Changes>
-  <Date>2026-09-24</Date>
+  <Date>2026-10-07</Date>
   <License>MIT</License>
   <MinVer>6.9</MinVer>
 
