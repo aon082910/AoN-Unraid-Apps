@@ -32,10 +32,23 @@ listings (pictures, designer, license, tags, parts lists), a page for every mode
 PDF export, a browser extension for one-click import, and optional webhook notifications (ntfy/Discord/Slack).
   </Overview>
   <Category>Tools:Utilities Productivity:</Category>
-  <ExtraSearchTerms>3d printing stl 3mf obj step fbx model library slicer filament print queue project parts bom shopping list supplies inventory makerworld printables sketchfab thingiverse pdf</ExtraSearchTerms>
+  <ExtraSearchTerms>3d printing stl 3mf obj step fbx model library slicer filament print queue project parts bom shopping list supplies inventory makerworld printables sketchfab thingiverse myminifactory cults3d pdf search download</ExtraSearchTerms>
   <Requires>Optional: an Ollama container (install the official "ollama" template from
 Community Applications first) if you want local AI instead of an API key.</Requires>
   <Changes>
+### 2.1.0
+New Search tab: search your library and every connected site at once, open
+any result for a full preview page, and add models to your library with one
+click, or tick several and add them together (Printables and Thingiverse files
+are downloaded by the server, kept to model file types only, and linked to their
+listing with pictures and details). MyMiniFactory and Cults3D can now be
+searched too: add their API keys in Settings, where each site has a Test button.
+Settings also lets you download the browser extension, which now works on
+Thingiverse, MyMiniFactory, Cults3D and Sketchfab pages as well (and in
+Firefox), and downloads with your own login for sites that need it. Matches has
+a Linked models list that can unlink many models at once. No new settings are
+required; new tables and columns are added automatically on first start.
+
 ### 2.0.0
 Every model and every project now has its own page instead of a popup (the
 back button works, and each page has an address you can bookmark). The model
