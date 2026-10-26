@@ -16,6 +16,7 @@ Unraid Community Applications templates for my self-hosted apps. One folder per 
 | **Card-Hub** | [`Card-Hub/`](Card-Hub/card-hub.xml) | [aon082910/card-hub](https://github.com/aon082910/card-hub) | [`allornothing/card-hub`](https://hub.docker.com/r/allornothing/card-hub) |
 | **Ghost-Hub** | [`Ghost-Hub/`](Ghost-Hub/ghost-hub.xml) | [aon082910/ghost-hub](https://github.com/aon082910/ghost-hub) | [`allornothing/ghost-hub`](https://hub.docker.com/r/allornothing/ghost-hub) |
 | **Backblaze-Personal** | [`Backblaze-Personal/`](Backblaze-Personal/backblaze-personal.xml) | [aon082910/backblaze-personal](https://github.com/aon082910/backblaze-personal) (fork of iamfoz's) | [`allornothing/backblaze-personal`](https://hub.docker.com/r/allornothing/backblaze-personal) |
+| **OmniRoute** | [`OmniRoute/`](OmniRoute/omniroute.xml) | [diegosouzapw/OmniRoute](https://github.com/diegosouzapw/OmniRoute) (third-party) | [`diegosouzapw/omniroute`](https://hub.docker.com/r/diegosouzapw/omniroute) |
 
 ## Installing
 
@@ -69,6 +70,9 @@ Card-Hub/
   icon.png              app icon
 Ghost-Hub/
   ghost-hub.xml         container template
+  icon.png              app icon
+OmniRoute/
+  omniroute.xml          container template (third-party image)
   icon.png              app icon
 Backblaze-Personal/
   backblaze-personal.xml  container template (generated from the app's settings list)

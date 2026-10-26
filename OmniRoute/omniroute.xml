@@ -1,0 +1,36 @@
+<?xml version="1.0"?>
+<Container version="2">
+  <Name>OmniRoute</Name>
+  <Repository>diegosouzapw/omniroute:latest</Repository>
+  <Registry>https://hub.docker.com/r/diegosouzapw/omniroute</Registry>
+  <Network>bridge</Network>
+  <MyIP/>
+  <Shell>sh</Shell>
+  <Privileged>false</Privileged>
+  <Support>https://github.com/diegosouzapw/OmniRoute/issues</Support>
+  <Project>https://github.com/diegosouzapw/OmniRoute</Project>
+  <TemplateURL>https://raw.githubusercontent.com/aon082910/AoN-Unraid-Apps/main/OmniRoute/omniroute.xml</TemplateURL>
+  <Icon>https://raw.githubusercontent.com/aon082910/AoN-Unraid-Apps/main/OmniRoute/icon.png</Icon>
+  <WebUI>http://[IP]:[PORT:20128]/</WebUI>
+  <Overview>
+OmniRoute is a free, MIT-licensed AI gateway. One OpenAI/Anthropic-compatible endpoint (/v1) routes to many providers, including free tiers such as Gemini, Groq and OpenRouter :free models, and falls back to the next healthy provider when one hits its limit. Point Claude Code or any other tool at it.
+
+First start: open the Web UI, set the dashboard password in the onboarding wizard, add your provider keys under Providers, then create an API key for your tools. Base URL for tools: http://SERVER-IP:20128/v1
+
+Third-party app, not made by this repository's author. Keep it on your LAN; do not forward the port to the internet.
+  </Overview>
+  <Category>Tools: Other:</Category>
+  <ExtraSearchTerms>ai gateway llm router proxy openai anthropic claude code fallback free models gemini groq openrouter</ExtraSearchTerms>
+  <ExtraParams>--restart=unless-stopped --stop-timeout=40</ExtraParams>
+  <PostArgs/>
+  <CPUset/>
+  <DateInstalled/>
+
+  <Config Name="Web UI and API Port" Target="20128" Default="20128" Mode="tcp" Description="Dashboard and API (/v1) port." Type="Port" Display="always" Required="true" Mask="false">20128</Config>
+  <Config Name="Data" Target="/app/data" Default="/mnt/cache/appdata/omniroute" Mode="rw" Description="SQLite database, saved secrets, backups. Back this folder up." Type="Path" Display="always" Required="true" Mask="false">/mnt/cache/appdata/omniroute</Config>
+  <Config Name="Memory heap (MB)" Target="OMNIROUTE_MEMORY_MB" Default="8192" Mode="" Description="Node heap. 1024 is enough for the dashboard and light chat; one coding agent such as Claude Code needs 8192." Type="Variable" Display="always" Required="false" Mask="false">8192</Config>
+  <Config Name="Time zone" Target="TZ" Default="America/New_York" Mode="" Description="tz database name." Type="Variable" Display="advanced" Required="false" Mask="false">America/New_York</Config>
+  <Config Name="Initial dashboard password" Target="INITIAL_PASSWORD" Default="" Mode="" Description="Leave empty and set the password in the onboarding wizard on first visit. Ignored once a password is saved." Type="Variable" Display="advanced" Required="false" Mask="true"></Config>
+  <Config Name="JWT secret" Target="JWT_SECRET" Default="" Mode="" Description="Leave empty: generated on first run and saved in the data folder." Type="Variable" Display="advanced" Required="false" Mask="true"></Config>
+  <Config Name="API key secret" Target="API_KEY_SECRET" Default="" Mode="" Description="Leave empty: generated on first run and saved in the data folder." Type="Variable" Display="advanced" Required="false" Mask="true"></Config>
+</Container>
