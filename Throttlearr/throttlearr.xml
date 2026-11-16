@@ -1,0 +1,127 @@
+<?xml version="1.0"?>
+<Container version="2">
+  <Name>Throttlearr</Name>
+  <Repository>allornothing/throttlearr:latest</Repository>
+  <Registry>https://hub.docker.com/r/allornothing/throttlearr</Registry>
+  <Network>bridge</Network>
+  <MyIP/>
+  <Shell>sh</Shell>
+  <Privileged>false</Privileged>
+
+  <Support>https://github.com/aon082910/throttlearr/issues</Support>
+  <Project>https://github.com/aon082910/throttlearr</Project>
+  <TemplateURL>https://raw.githubusercontent.com/aon082910/AoN-Unraid-Apps/main/Throttlearr/throttlearr.xml</TemplateURL>
+  <ReadMe>https://raw.githubusercontent.com/aon082910/throttlearr/main/README.md</ReadMe>
+  <Icon>https://raw.githubusercontent.com/aon082910/AoN-Unraid-Apps/main/Throttlearr/icon.png</Icon>
+  <WebUI>http://[IP]:[PORT:8085]/</WebUI>
+
+  <Overview>
+A gate that sits between Sonarr / Radarr / Lidarr / Readarr and SABnzbd. To your apps it looks like a normal SABnzbd, so the only change is the host, port and API key of the download client. Behind the scenes it keeps every grab in its own queue and hands them to the real SABnzbd only when your rules allow: at most N jobs in SABnzbd, a cap on gigabytes still to download, a limit on adds per hour, allowed hours, and a free-disk floor.
+
+Why: Sonarr and Radarr have no limit on how many jobs they push into a download client. One "search all missing" can put thousands of jobs in SABnzbd and bring it to a crawl. Held jobs show in your apps as queued, so the apps do not time out, re-grab or blocklist them.
+
+It also looks inside each NZB before it reaches SABnzbd and refuses releases that hold a program, only repair data and text, or only a sample clip. The app sees these as a failed download with the reason, so it blocklists the release and searches again.
+
+A small web page shows what is held and why, with Release now, Move up and Remove buttons, and a fail-open switch that sends everything straight through if you ever need it. /health and /metrics (Prometheus) are included. Held jobs are stored on disk and survive restarts.
+
+Version 0.1 supports SABnzbd as the download client (usenet). qBittorrent / rdt-client support is planned. Throttlearr does not download, search for or provide any content; it only controls the order and pace in which your existing apps hand work to your existing download client.
+  </Overview>
+
+  <Category>Downloaders: Tools:Utilities</Category>
+  <ExtraSearchTerms>sonarr radarr lidarr readarr sabnzbd usenet nzb queue limit throttle gate proxy download client schedule arr</ExtraSearchTerms>
+  <Requires>A running SABnzbd, and its API key (SABnzbd, Config, General). Point Sonarr/Radarr at Throttlearr instead of SABnzbd after you install it.</Requires>
+  <Date>2026-11-16</Date>
+  <Changes>
+### 2026-11-16
+- First release (0.1.0): SABnzbd front and back end, hold and release by job count, bytes left, adds per hour, schedule and free disk, NZB checks, web page, health and metrics.
+  </Changes>
+  <License>MIT</License>
+  <MinVer>6.9</MinVer>
+
+  <ExtraParams/>
+  <PostArgs/>
+  <CPUset/>
+  <DateInstalled/>
+  <DonateText/>
+  <DonateLink/>
+
+  <Config Name="WebUI / API Port" Target="8085" Default="8085" Mode="tcp"
+          Description="Port for the web page and the SABnzbd-style API your apps connect to."
+          Type="Port" Display="always" Required="true" Mask="false">8085</Config>
+
+  <Config Name="Config" Target="/config" Default="/mnt/user/appdata/throttlearr" Mode="rw"
+          Description="Holds the database (held jobs, history, settings) and the held NZB files."
+          Type="Path" Display="always" Required="true" Mask="false">/mnt/user/appdata/throttlearr</Config>
+
+  <Config Name="SABnzbd URL" Target="UPSTREAM_URL" Default="http://192.168.1.10:8080" Mode=""
+          Description="Address of your real SABnzbd, for example http://192.168.1.10:8080 (no trailing path)."
+          Type="Variable" Display="always" Required="true" Mask="false">http://192.168.1.10:8080</Config>
+
+  <Config Name="SABnzbd API Key" Target="UPSTREAM_API_KEY" Default="" Mode=""
+          Description="SABnzbd's API key (SABnzbd, Config, General, API Key)."
+          Type="Variable" Display="always" Required="true" Mask="true"></Config>
+
+  <Config Name="Max jobs in SABnzbd" Target="MAX_ACTIVE" Default="3" Mode=""
+          Description="Most jobs SABnzbd may hold at once, counting jobs Throttlearr did not add. 0 = no limit."
+          Type="Variable" Display="always" Required="false" Mask="false">3</Config>
+
+  <Config Name="Max GB left to download" Target="MAX_ACTIVE_GB" Default="0" Mode=""
+          Description="Optional cap on the total gigabytes still to download in SABnzbd. An empty SABnzbd always accepts one job, whatever its size. 0 = no limit."
+          Type="Variable" Display="always" Required="false" Mask="false">0</Config>
+
+  <Config Name="Allowed hours" Target="SCHEDULE" Default="" Mode=""
+          Description="Optional. When jobs may be released, in the server's local time. Example: mon-fri 21:00-07:00; sat,sun 00:00-00:00 (an end before the start runs past midnight; 00:00-00:00 is the whole day). Empty = any time."
+          Type="Variable" Display="always" Required="false" Mask="false"></Config>
+
+  <Config Name="API Key for your apps" Target="API_KEY" Default="" Mode=""
+          Description="The key Sonarr/Radarr use to talk to Throttlearr. Leave blank to have one generated; it is shown on the web page."
+          Type="Variable" Display="advanced" Required="false" Mask="true"></Config>
+
+  <Config Name="Adds per hour" Target="ADDS_PER_HOUR" Default="0" Mode=""
+          Description="Optional cap on jobs sent to SABnzbd per hour (some providers limit adds). 0 = no limit."
+          Type="Variable" Display="advanced" Required="false" Mask="false">0</Config>
+
+  <Config Name="Minimum free disk GB" Target="MIN_FREE_GB" Default="0" Mode=""
+          Description="Optional. Stop releasing when free space would drop under this many GB. Needs the downloads folder mounted below. 0 = off."
+          Type="Variable" Display="advanced" Required="false" Mask="false">0</Config>
+
+  <Config Name="Downloads folder (read only)" Target="/downloads" Default="" Mode="ro"
+          Description="Optional: the folder SABnzbd downloads into, read only. Only used to measure free space for the setting above."
+          Type="Path" Display="advanced" Required="false" Mask="false"></Config>
+
+  <Config Name="Max hours held" Target="MAX_HELD_HOURS" Default="72" Mode=""
+          Description="A job held longer than this is dropped and reported to the app as failed, so it searches again. 0 = never."
+          Type="Variable" Display="advanced" Required="false" Mask="false">72</Config>
+
+  <Config Name="Force priority skips hold" Target="BYPASS_FORCE" Default="true" Mode=""
+          Description="Jobs sent with SABnzbd's Force priority are never held (true or false)."
+          Type="Variable" Display="advanced" Required="false" Mask="false">true</Config>
+
+  <Config Name="Minimum NZB size MB" Target="MIN_NZB_MB" Default="0" Mode=""
+          Description="Optional: refuse an NZB whose video and archives add up to less than this many MB. 0 = off."
+          Type="Variable" Display="advanced" Required="false" Mask="false">0</Config>
+
+  <Config Name="Web page user" Target="UI_USER" Default="" Mode=""
+          Description="Optional. Set both user and password to put the web page behind a login. The API for your apps is not affected."
+          Type="Variable" Display="advanced" Required="false" Mask="false"></Config>
+
+  <Config Name="Web page password" Target="UI_PASSWORD" Default="" Mode=""
+          Description="Optional password for the web page."
+          Type="Variable" Display="advanced" Required="false" Mask="true"></Config>
+
+  <Config Name="Dry run" Target="DRY_RUN" Default="false" Mode=""
+          Description="true = never hold anything, only log what would have been held. Good for a first try."
+          Type="Variable" Display="advanced" Required="false" Mask="false">false</Config>
+
+  <Config Name="Time zone" Target="TZ" Default="America/New_York" Mode=""
+          Description="Time zone for the allowed hours."
+          Type="Variable" Display="advanced" Required="false" Mask="false">America/New_York</Config>
+
+  <Config Name="PUID" Target="PUID" Default="99" Mode=""
+          Description="User id the app runs as (Unraid: 99 = nobody)."
+          Type="Variable" Display="advanced" Required="false" Mask="false">99</Config>
+
+  <Config Name="PGID" Target="PGID" Default="100" Mode=""
+          Description="Group id the app runs as (Unraid: 100 = users)."
+          Type="Variable" Display="advanced" Required="false" Mask="false">100</Config>
+</Container>
