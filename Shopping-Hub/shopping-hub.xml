@@ -80,7 +80,7 @@ Initial release. Adapters for AliExpress, Alibaba, DHgate, Banggood, Made-in-Chi
 Geekbuying, Chinavasion and eBay. Landed-cost comparison, break-even analysis,
 reverse image search, BOM costing, price/restock watches, full-text search.
   </Changes>
-  <Date>2026-09-03</Date>
+  <Date>2026-09-08</Date>
   <License>MIT</License>
   <MinVer>6.9</MinVer>
 

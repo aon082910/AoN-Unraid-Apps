@@ -59,7 +59,7 @@ installed and re-checking that source directly.
   <Category>Tools:Utilities</Category>
   <ExtraSearchTerms>minecraft mod addon search modrinth curseforge planetminecraft 9minecraft betterbedrock bedrock java edition modpack resourcepack shader</ExtraSearchTerms>
   <Requires>Optional but recommended: a free CurseForge API key (console.curseforge.com) and YouTube Data API v3 key (Google Cloud Console) — both entered from the admin portal after first boot, not required to install or run the container.</Requires>
-  <Date>2026-09-06</Date>
+  <Date>2026-09-12</Date>
   <!-- 2026-09-02: added Hangar and SpigotMC (via Spiget) as search sources -->
   <!-- 2026-09-06: added TLMods and MinecraftSkins.net (new Skins category) as search sources -->
   <!-- 2026-09-06: added Polymart and GitHub as search sources; extended Skins to 9Minecraft -->

@@ -46,7 +46,7 @@ configured from inside the app itself, not through container variables.
   <ExtraSearchTerms>sonarr radarr lidarr readarr prowlarr bazarr media manager pvr books comics manga audiobooks podcasts irc autobrr</ExtraSearchTerms>
   <Requires>An indexer (Torznab/Newznab, or Prowlarr/Jackett to sync from) and at least one download client are needed before it can actually acquire anything - both configured from inside the app after first run.</Requires>
   <Changes>https://raw.githubusercontent.com/aon082910/AoNarr/main/CHANGELOG.md</Changes>
-  <Date>2026-08-31</Date>
+  <Date>2026-11-08</Date>
   <License>MIT</License>
   <MinVer>6.9</MinVer>
 

@@ -38,7 +38,7 @@ binders, trade ledger, sales and profit reporting, Excel/CSV/PDF export and impo
 multi-user login with an admin API Keys panel, and a multi-language UI (English/
 Spanish/French).
   </Changes>
-  <Date>2026-09-07</Date>
+  <Date>2026-09-13</Date>
   <License>MIT</License>
   <MinVer>6.9</MinVer>
 
