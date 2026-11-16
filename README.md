@@ -1,87 +1,37 @@
 # AoN-Unraid-Apps
 
-Unraid Community Applications templates for my self-hosted apps. One folder per app.
+Unraid Community Applications templates for my self-hosted apps, one folder per app.
 
-| App | Template | Source | Image |
-|---|---|---|---|
-| **Shopping Hub** | [`Shopping-Hub/`](Shopping-Hub/shopping-hub.xml) | [aon082910/shopping-hub](https://github.com/aon082910/shopping-hub) | [`allornothing/shopping-hub`](https://hub.docker.com/r/allornothing/shopping-hub) |
-| **AoNarr** | [`AoNarr/`](AoNarr/aonarr.xml) | [aon082910/AoNarr](https://github.com/aon082910/AoNarr) | [`allornothing/aonarr`](https://hub.docker.com/r/allornothing/aonarr) |
-| **MC-Mod-Hub** | [`MC-Mod-Hub/`](MC-Mod-Hub/mc-mod-hub.xml) | [aon082910/mc-mod-hub](https://github.com/aon082910/mc-mod-hub) | [`allornothing/mc-mod-hub`](https://hub.docker.com/r/allornothing/mc-mod-hub) |
-| **Build-Hub** | [`Build-Hub/`](Build-Hub/build-hub.xml) | [aon082910/build-hub](https://github.com/aon082910/build-hub) | [`allornothing/build-hub`](https://hub.docker.com/r/allornothing/build-hub) |
-| **AppForge Hub** | [`AppForge-Hub/`](AppForge-Hub/appforge-hub.xml) | [aon082910/appforge-hub](https://github.com/aon082910/appforge-hub) | [`allornothing/appforge-hub`](https://hub.docker.com/r/allornothing/appforge-hub) |
-| **Model Hub** | [`Model-Hub/`](Model-Hub/model-hub.xml) | [aon082910/model-hub](https://github.com/aon082910/model-hub) | [`allornothing/model-hub`](https://hub.docker.com/r/allornothing/model-hub) |
-| **Repair-Hub** | [`Repair-Hub/`](Repair-Hub/repair-hub.xml) | [aon082910/repair-hub](https://github.com/aon082910/repair-hub) | [`allornothing/repair-hub`](https://hub.docker.com/r/allornothing/repair-hub) |
-| **SOP-Hub** | [`SOP-Hub/`](SOP-Hub/sop-hub.xml) | [aon082910/sop-hub](https://github.com/aon082910/sop-hub) | [`allornothing/sop-hub`](https://hub.docker.com/r/allornothing/sop-hub) |
-| **Channel Hub** | [`Channel-Hub/`](Channel-Hub/channel-hub.xml) | [aon082910/channel-hub](https://github.com/aon082910/channel-hub) | [`allornothing/channel-hub`](https://hub.docker.com/r/allornothing/channel-hub) |
-| **Card-Hub** | [`Card-Hub/`](Card-Hub/card-hub.xml) | [aon082910/card-hub](https://github.com/aon082910/card-hub) | [`allornothing/card-hub`](https://hub.docker.com/r/allornothing/card-hub) |
-| **Ghost-Hub** | [`Ghost-Hub/`](Ghost-Hub/ghost-hub.xml) | [aon082910/ghost-hub](https://github.com/aon082910/ghost-hub) | [`allornothing/ghost-hub`](https://hub.docker.com/r/allornothing/ghost-hub) |
-| **Throttlearr** | [`Throttlearr/`](Throttlearr/throttlearr.xml) | [aon082910/throttlearr](https://github.com/aon082910/throttlearr) | [`allornothing/throttlearr`](https://hub.docker.com/r/allornothing/throttlearr) |
-| **Backblaze-Personal** | [`Backblaze-Personal/`](Backblaze-Personal/backblaze-personal.xml) | [aon082910/backblaze-personal](https://github.com/aon082910/backblaze-personal) (fork of iamfoz's) | [`allornothing/backblaze-personal`](https://hub.docker.com/r/allornothing/backblaze-personal) |
-| **OmniRoute** | [`OmniRoute/`](OmniRoute/omniroute.xml) | [diegosouzapw/OmniRoute](https://github.com/diegosouzapw/OmniRoute) (third-party) | [`diegosouzapw/omniroute`](https://hub.docker.com/r/diegosouzapw/omniroute) |
+| App | Source | Image |
+|---|---|---|
+| **Shopping Hub** | [shopping-hub](https://github.com/aon082910/shopping-hub) | [`allornothing/shopping-hub`](https://hub.docker.com/r/allornothing/shopping-hub) |
+| **AoNarr** | [AoNarr](https://github.com/aon082910/AoNarr) | [`allornothing/aonarr`](https://hub.docker.com/r/allornothing/aonarr) |
+| **MC-Mod-Hub** | [mc-mod-hub](https://github.com/aon082910/mc-mod-hub) | [`allornothing/mc-mod-hub`](https://hub.docker.com/r/allornothing/mc-mod-hub) |
+| **Build-Hub** | [build-hub](https://github.com/aon082910/build-hub) | [`allornothing/build-hub`](https://hub.docker.com/r/allornothing/build-hub) |
+| **AppForge Hub** | [appforge-hub](https://github.com/aon082910/appforge-hub) | [`allornothing/appforge-hub`](https://hub.docker.com/r/allornothing/appforge-hub) |
+| **Model Hub** | [model-hub](https://github.com/aon082910/model-hub) | [`allornothing/model-hub`](https://hub.docker.com/r/allornothing/model-hub) |
+| **Repair-Hub** | [repair-hub](https://github.com/aon082910/repair-hub) | [`allornothing/repair-hub`](https://hub.docker.com/r/allornothing/repair-hub) |
+| **SOP-Hub** | [sop-hub](https://github.com/aon082910/sop-hub) | [`allornothing/sop-hub`](https://hub.docker.com/r/allornothing/sop-hub) |
+| **Channel Hub** | [channel-hub](https://github.com/aon082910/channel-hub) | [`allornothing/channel-hub`](https://hub.docker.com/r/allornothing/channel-hub) |
+| **Card-Hub** | [card-hub](https://github.com/aon082910/card-hub) | [`allornothing/card-hub`](https://hub.docker.com/r/allornothing/card-hub) |
+| **Ghost-Hub** | [ghost-hub](https://github.com/aon082910/ghost-hub) | [`allornothing/ghost-hub`](https://hub.docker.com/r/allornothing/ghost-hub) |
+| **Throttlearr** | [throttlearr](https://github.com/aon082910/throttlearr) | [`allornothing/throttlearr`](https://hub.docker.com/r/allornothing/throttlearr) |
+| **Backblaze-Personal** | [backblaze-personal](https://github.com/aon082910/backblaze-personal) (fork of iamfoz's) | [`allornothing/backblaze-personal`](https://hub.docker.com/r/allornothing/backblaze-personal) |
+| **OmniRoute** | [OmniRoute](https://github.com/diegosouzapw/OmniRoute) (third-party) | [`diegosouzapw/omniroute`](https://hub.docker.com/r/diegosouzapw/omniroute) |
 
 ## Installing
 
-Once this repository is listed in Community Applications, open the **Apps** tab on
-your Unraid server and search for the app by name.
+Once this repository is listed in Community Applications, search for the app by name in the Apps tab.
 
-To install a template before then, pull it straight onto the server:
+Until then, add `https://github.com/aon082910/AoN-Unraid-Apps` under Apps → Settings → Template Repositories, or pull a single template onto your server:
 
 ```bash
 wget -O /boot/config/plugins/dockerMan/templates-user/my-shopping-hub.xml \
   https://raw.githubusercontent.com/aon082910/AoN-Unraid-Apps/main/Shopping-Hub/shopping-hub.xml
 ```
 
-Then **Docker -> Add Container** and pick it from the template dropdown.
-
-## Repository layout
-
-```
-ca_profile.xml          maintainer profile shown in Community Applications
-icon.png                repository icon
-Shopping-Hub/
-  shopping-hub.xml      container template
-  icon.png              app icon
-  screenshots/          listing screenshots
-AoNarr/
-  aonarr.xml            container template
-  icon.png              app icon
-MC-Mod-Hub/
-  mc-mod-hub.xml        container template
-  icon.png              app icon
-Build-Hub/
-  build-hub.xml         container template
-  icon.png              app icon
-AppForge-Hub/
-  appforge-hub.xml      container template
-  icon.png              app icon
-Model-Hub/
-  model-hub.xml         container template
-  icon.png              app icon
-Repair-Hub/
-  repair-hub.xml        container template
-  icon.png              app icon
-SOP-Hub/
-  sop-hub.xml           container template
-  icon.png              app icon
-Channel-Hub/
-  channel-hub.xml       container template
-  icon.png              app icon
-Card-Hub/
-  card-hub.xml          container template
-  icon.png              app icon
-Ghost-Hub/
-  ghost-hub.xml         container template
-  icon.png              app icon
-OmniRoute/
-  omniroute.xml          container template (third-party image)
-  icon.png              app icon
-Backblaze-Personal/
-  backblaze-personal.xml  container template (generated from the app's settings list)
-```
-
-`ca_profile.xml` lives at the root and describes the whole repository, not any one
-app -- Community Applications expects exactly one per repository.
+Then Docker → Add Container and pick it from the template dropdown.
 
 ## License
 
-MIT - see [LICENSE](LICENSE). Each app is licensed separately in its own repository.
+MIT, see [LICENSE](LICENSE). Each app is licensed in its own repository.
