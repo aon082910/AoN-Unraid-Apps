@@ -1,0 +1,29 @@
+<?xml version="1.0"?>
+<Container version="2">
+  <Name>skill-harvester</Name>
+  <Repository>allornothing/skill-harvester:latest</Repository>
+  <Registry>https://hub.docker.com/r/allornothing/skill-harvester</Registry>
+  <Network>bridge</Network>
+  <MyIP/>
+  <Shell>sh</Shell>
+  <Privileged>false</Privileged>
+  <Support>https://github.com/aon082910/AoN-Unraid-Apps/issues</Support>
+  <Project>https://github.com/aon082910/AoN-Unraid-Apps</Project>
+  <Overview>Finds Claude skills (catalog plus the same creators' other GitHub repos), saves each whole skill folder, keeps the copies current, and scans them. Runs the service and its web window headless; open the WebUI. There is no login: keep the port on your LAN only.</Overview>
+  <Category>Tools: Downloaders:</Category>
+  <WebUI>http://[IP]:[PORT:18765]/</WebUI>
+  <TemplateURL>https://raw.githubusercontent.com/aon082910/AoN-Unraid-Apps/main/Skill-Harvester/skill-harvester.xml</TemplateURL>
+  <Icon>https://raw.githubusercontent.com/aon082910/AoN-Unraid-Apps/main/Skill-Harvester/icon.png</Icon>
+  <ExtraParams>--health-start-period=20s</ExtraParams>
+  <PostArgs/>
+  <CPUset/>
+  <DateInstalled/>
+  <DonateText/>
+  <DonateLink/>
+  <Requires/>
+  <Config Name="Web UI port" Target="18765" Default="18765" Mode="tcp" Description="Port of the window and the API (no login: LAN only)." Type="Port" Display="always" Required="true" Mask="false">18765</Config>
+  <Config Name="Skills library" Target="/skills" Default="/mnt/user/appdata/skill-harvester/skills" Mode="rw" Description="Where the downloaded skills, repos and backups (_backups) go. Big: use a share with room." Type="Path" Display="always" Required="true" Mask="false">/mnt/user/appdata/skill-harvester/skills</Config>
+  <Config Name="Working files" Target="/data" Default="/mnt/user/appdata/skill-harvester/data" Mode="rw" Description="library.db, the job queue, logs, lists.json and settings.json. Keep this on cache/SSD." Type="Path" Display="always" Required="true" Mask="false">/mnt/user/appdata/skill-harvester/data</Config>
+  <Config Name="GitHub token" Target="HARVEST_GITHUB_TOKEN" Default="" Mode="" Description="A GitHub personal access token (public repo read access is enough). Raises the API allowance; without it downloads are slow." Type="Variable" Display="always" Required="false" Mask="true"/>
+  <Config Name="Allowed hosts" Target="HARVEST_ALLOWED_HOSTS" Default="*" Mode="" Description="Host names the window may be opened under besides localhost, comma separated (for example tower,192.168.1.10), or * for any." Type="Variable" Display="always" Required="false" Mask="false">*</Config>
+</Container>
