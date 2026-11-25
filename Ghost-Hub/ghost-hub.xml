@@ -60,7 +60,7 @@ First pre-release.
 
   <Config Name="App URL" Target="APP_URL" Default="http://[IP]:3000" Mode="" Description="The address you open Ghost-Hub at, for example https://hub.example.com. Used for the Gmail and Outlook sign-in redirect and the session cookie. Gmail and Outlook only work with an https address (or localhost): see docs/UNRAID.md." Type="Variable" Display="always" Required="true" Mask="false">http://[IP]:3000</Config>
 
-  <Config Name="Admin Password" Target="ADMIN_PASSWORD" Default="" Mode="" Description="Password for the web login. Use 12 or more characters; common placeholder values are refused." Type="Variable" Display="always" Required="true" Mask="true"></Config>
+  <Config Name="Admin Password" Target="ADMIN_PASSWORD" Default="" Mode="" Description="Password for the web login. Minimum 8 characters, 12 or more recommended; common placeholder values are refused." Type="Variable" Display="always" Required="true" Mask="true"></Config>
 
   <Config Name="Encryption Key" Target="ENCRYPTION_KEY" Default="" Mode="" Description="32-byte base64 key that encrypts the logins Ghost-Hub stores. Generate one with: openssl rand -base64 32. Back it up: if you lose it you must reconnect every mailbox." Type="Variable" Display="always" Required="true" Mask="true"></Config>
 
