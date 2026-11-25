@@ -12,7 +12,7 @@
   <WebUI>http://[IP]:[PORT:8080]/</WebUI>
   <Icon>https://raw.githubusercontent.com/aon082910/AoN-Unraid-Apps/main/Household-Hub/icon.png</Icon>
   <Date>2026-11-25</Date>
-  <Changes>1.0.0: first release.</Changes>
+  <Changes>1.1.0: statement import (CSV/OFX/QFX, PayPal), email reader for bank, PayPal and bill emails, transfers, bill matching. 1.0.0: first release.</Changes>
   <Config Name="Web UI port" Target="8080" Default="8095" Mode="tcp" Description="Web UI" Type="Port" Display="always" Required="true" Mask="false">8095</Config>
   <Config Name="App data" Target="/data" Default="/mnt/user/appdata/household-hub" Mode="rw" Description="Database (household.db). Back this folder up." Type="Path" Display="always" Required="true" Mask="false">/mnt/user/appdata/household-hub</Config>
   <Config Name="Time zone" Target="TZ" Default="America/New_York" Mode="" Description="Reminders go out on this clock" Type="Variable" Display="always" Required="true" Mask="false">America/New_York</Config>
