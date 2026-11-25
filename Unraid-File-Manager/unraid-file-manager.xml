@@ -1,0 +1,28 @@
+<?xml version="1.0"?>
+<Container version="2">
+  <Name>unraid-file-manager</Name>
+  <Repository>allornothing/unraid-file-manager:latest</Repository>
+  <Registry>https://hub.docker.com/r/allornothing/unraid-file-manager</Registry>
+  <Network>bridge</Network>
+  <MyIP/>
+  <Shell>sh</Shell>
+  <Privileged>false</Privileged>
+  <Support>https://github.com/aon082910/AoN-Unraid-Apps/issues</Support>
+  <Project>https://github.com/aon082910/AoN-Unraid-Apps</Project>
+  <Overview>The server side of Unraid File Manager: a small HTTP agent that browses, edits, moves, copies and hashes files on your real disk paths (/mnt/disk1, /mnt/cache, /mnt/user, /boot). Deletes go to a Recycle Bin and can be undone; system and share roots are protected. It has no web page: it is used by the Unraid File Manager window on Windows (separate download), which needs the address of this container and the access token. WARNING: this container can read and change every file on the array and the flash drive. Keep the port on your LAN only, never forward it. Show the access token with: docker exec unraid-file-manager ufc-server serve --print-token</Overview>
+  <Category>Tools: Utilities:</Category>
+  <TemplateURL>https://raw.githubusercontent.com/aon082910/AoN-Unraid-Apps/main/Unraid-File-Manager/unraid-file-manager.xml</TemplateURL>
+  <Icon>https://raw.githubusercontent.com/aon082910/AoN-Unraid-Apps/main/Unraid-File-Manager/icon.png</Icon>
+  <ExtraParams>--health-start-period=10s</ExtraParams>
+  <PostArgs/>
+  <CPUset/>
+  <DateInstalled/>
+  <DonateText/>
+  <DonateLink/>
+  <Requires/>
+  <Date>2026-11-25</Date>
+  <Changes>1.0.0: first container release of the agent (same agent that ran from the flash drive).</Changes>
+  <Config Name="Agent port" Target="18767" Default="18767" Mode="tcp" Description="Port the Windows window connects to. LAN only. If the old flash-drive agent still runs on 18767, pick another host port here (for example 18768) or stop the old one first." Type="Port" Display="always" Required="true" Mask="false">18767</Config>
+  <Config Name="Array and pools" Target="/mnt" Default="/mnt" Mode="rw,slave" Description="All disks, pools, user shares and the Recycle Bin. Leave as /mnt." Type="Path" Display="always" Required="true" Mask="false">/mnt</Config>
+  <Config Name="Flash drive" Target="/boot" Default="/boot" Mode="rw" Description="The flash drive. Holds the access token, the PIN and file-edit backups (/boot/config/plugins/ufm) and lets you edit /boot/config files." Type="Path" Display="always" Required="true" Mask="false">/boot</Config>
+</Container>
