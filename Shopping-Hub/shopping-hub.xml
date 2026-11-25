@@ -60,6 +60,14 @@ change the Repository field above to use it.
   <ExtraSearchTerms>shopping price comparison aliexpress alibaba dhgate banggood ebay scraper dropshipping sourcing importing</ExtraSearchTerms>
   <Requires>Internet access. A residential proxy is recommended for sustained crawling.</Requires>
   <Changes>
+### 1.1.0
+Translation can now use any OpenAI-compatible gateway (for example OmniRoute): set
+Translation Provider to openai and fill in LLM Base URL, LLM Model and, if the gateway
+needs one, LLM API Key. Security fixes: image search by URL now refuses private, LAN
+and cloud-metadata addresses and caps the download size; uploads and BOM input have
+size limits; the admin pages no longer treat requests through a reverse proxy as
+local when no admin token is set.
+
 ### 1.0.2
 Searching for something nobody has crawled yet now starts a crawl for it in the
 background; the search returns immediately with whatever is already known and the
@@ -80,7 +88,7 @@ Initial release. Adapters for AliExpress, Alibaba, DHgate, Banggood, Made-in-Chi
 Geekbuying, Chinavasion and eBay. Landed-cost comparison, break-even analysis,
 reverse image search, BOM costing, price/restock watches, full-text search.
   </Changes>
-  <Date>2026-09-08</Date>
+  <Date>2026-11-25</Date>
   <License>MIT</License>
   <MinVer>6.9</MinVer>
 
@@ -117,11 +125,23 @@ reverse image search, BOM costing, price/restock watches, full-text search.
           Type="Variable" Display="always" Required="false" Mask="false">America/New_York</Config>
 
   <Config Name="Translation Provider" Target="TRANSLATE_PROVIDER" Default="none" Mode=""
-          Description="claude, deepl, google_free or none. Without translation, Chinese listings cannot be title-matched and mostly stay on their own product pages."
+          Description="claude, openai, deepl, google_free or none. openai means any OpenAI-compatible gateway such as OmniRoute (set the LLM fields below). Without translation, Chinese listings cannot be title-matched and mostly stay on their own product pages."
           Type="Variable" Display="always" Required="false" Mask="false">none</Config>
 
   <Config Name="Anthropic API Key" Target="ANTHROPIC_API_KEY" Default="" Mode=""
           Description="Used when Translation Provider is set to claude. Translations are cached by content hash, so a repeat crawl costs nothing."
+          Type="Variable" Display="always" Required="false" Mask="true"/>
+
+  <Config Name="LLM Base URL" Target="LLM_BASE_URL" Default="" Mode=""
+          Description="Used when Translation Provider is set to openai. Base URL of an OpenAI-compatible API, ending in /v1 - for OmniRoute that is http://HOST:20128/v1."
+          Type="Variable" Display="always" Required="false" Mask="false"/>
+
+  <Config Name="LLM Model" Target="LLM_MODEL" Default="apps-default" Mode=""
+          Description="Used when Translation Provider is set to openai. Model or combo name to request. apps-default is the OmniRoute combo for apps."
+          Type="Variable" Display="always" Required="false" Mask="false">apps-default</Config>
+
+  <Config Name="LLM API Key" Target="LLM_API_KEY" Default="" Mode=""
+          Description="Used when Translation Provider is set to openai. API key for the gateway (OmniRoute key). Leave blank if the gateway needs none."
           Type="Variable" Display="always" Required="false" Mask="true"/>
 
   <Config Name="PUID" Target="PUID" Default="99" Mode=""
