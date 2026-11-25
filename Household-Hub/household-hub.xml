@@ -12,8 +12,9 @@
   <WebUI>http://[IP]:[PORT:8080]/</WebUI>
   <Icon>https://raw.githubusercontent.com/aon082910/AoN-Unraid-Apps/main/Household-Hub/icon.png</Icon>
   <Date>2026-11-25</Date>
-  <Changes>1.1.0: statement import (CSV/OFX/QFX, PayPal), email reader for bank, PayPal and bill emails, transfers, bill matching. 1.0.0: first release.</Changes>
+  <Changes>1.2.0: several folders/labels per mailbox, statement folders that import by themselves. 1.1.0: statement import (CSV/OFX/QFX, PayPal), email reader for bank, PayPal and bill emails, transfers, bill matching. 1.0.0: first release.</Changes>
   <Config Name="Web UI port" Target="8080" Default="8095" Mode="tcp" Description="Web UI" Type="Port" Display="always" Required="true" Mask="false">8095</Config>
   <Config Name="App data" Target="/data" Default="/mnt/user/appdata/household-hub" Mode="rw" Description="Database (household.db). Back this folder up." Type="Path" Display="always" Required="true" Mask="false">/mnt/user/appdata/household-hub</Config>
+  <Config Name="Statements folder" Target="/statements" Default="/mnt/user/appdata/household-hub/statements" Mode="rw" Description="Put bank and PayPal statement files (CSV, OFX, QFX) in subfolders here; Household Hub imports them by itself (read only, nothing is moved). Set up in Settings, Auto import." Type="Path" Display="always" Required="false" Mask="false">/mnt/user/appdata/household-hub/statements</Config>
   <Config Name="Time zone" Target="TZ" Default="America/New_York" Mode="" Description="Reminders go out on this clock" Type="Variable" Display="always" Required="true" Mask="false">America/New_York</Config>
 </Container>
