@@ -1,0 +1,19 @@
+<?xml version="1.0"?>
+<Container version="2">
+  <Name>Household-Hub</Name>
+  <Repository>allornothing/household-hub:latest</Repository>
+  <Registry>https://hub.docker.com/r/allornothing/household-hub</Registry>
+  <Network>bridge</Network>
+  <Privileged>false</Privileged>
+  <Support>https://github.com/aon082910/household-hub/issues</Support>
+  <Project>https://github.com/aon082910/household-hub</Project>
+  <Overview>Shared household finances and calendar. Bills with due dates and reminders, accounts, transactions, monthly budgets, and a family calendar for appointments and due dates. Every person in the house gets their own login, private items stay private, and reminders go out by in-app alerts, Windows notifications, phone push (ntfy), email, text message or Discord/webhook. A Windows app is available.</Overview>
+  <Category>Productivity: Tools:</Category>
+  <WebUI>http://[IP]:[PORT:8080]/</WebUI>
+  <Icon>https://raw.githubusercontent.com/aon082910/AoN-Unraid-Apps/main/Household-Hub/icon.png</Icon>
+  <Date>2026-11-25</Date>
+  <Changes>1.0.0: first release.</Changes>
+  <Config Name="Web UI port" Target="8080" Default="8095" Mode="tcp" Description="Web UI" Type="Port" Display="always" Required="true" Mask="false">8095</Config>
+  <Config Name="App data" Target="/data" Default="/mnt/user/appdata/household-hub" Mode="rw" Description="Database (household.db). Back this folder up." Type="Path" Display="always" Required="true" Mask="false">/mnt/user/appdata/household-hub</Config>
+  <Config Name="Time zone" Target="TZ" Default="America/New_York" Mode="" Description="Reminders go out on this clock" Type="Variable" Display="always" Required="true" Mask="false">America/New_York</Config>
+</Container>
